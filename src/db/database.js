@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 async function connect(){
      try {
-        await mongoose.connect('mongodb://localhost:27017/calendar', {
+        await mongoose.connect('mongodb+srv://g26:khongduoctietlo@cluster0.jmxom.mongodb.net/calendar?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
           });
