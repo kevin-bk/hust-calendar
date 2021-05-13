@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(250, 250, 250, 1);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+}
+
+#mainVisual {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    text-align: center;
+    display: inline-table;
+    transition: all 0.2s ease-out 0s;
+}
+
+#visual_home_bg{
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: auto;
+    z-index: -9;
+    min-width: 100%;
+    min-height: 100%;
+    height: 800px;
+    background-image: url(/img/welcome.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#mainVisual h1 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    width: 100%;
+    height: auto;
+    word-spacing: 6px;
+    margin-top: 100px;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+#mainVisual h3 {
+    font-weight: 100;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    width: 80%;
+    height: auto;
+    font-weight: 400;
+}
+
+#mainVisual a{
+    background: #ca3b6e;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 3px;
+    margin-left: 10px;
+    letter-spacing: 1px;
+    transition: .2s ease-in-out;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 12 12px;
+}
+
+/* Header */
+
+.login{
+    padding-left: 30px; 
+    padding-right: 30px; 
+    font-size: 0.9em;
+}
+
+#header {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    color: rgba(250, 250, 250, 0.9);
+    z-index: 999;
+    transition: all 0.2s ease-out 0s;
+    display: flex;
+}
+
+#headerLogo{
+    font-family: 'Rubik', sans-serif;
+    flex: 1;
+    font-size: 22px;
+}
+
+#bk{
+    display: inline;
+    color: #6082ed;
+    margin-left: 50px;
+}
+
+#headerNav {
+    height: 100%;
+    width: auto;
+    float: right;
+}
+
+#headerNav ul {
+    list-style: none;
+}
+
+#headerNav li {
+    float: right;
+    padding-right: 36px;
+    text-transform: lowercase;
+    transition: all 0.2s ease-out;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+button.login, button.menu-btn {
+    outline: none;
+    border: 2px solid;
+    border-color: #bc5149;
+    background-color: #dc665d;
+    color: rgba(255, 250, 250, 0.9);
+    padding: 14px 46px 14px 46px;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease-out 0s;
+}
