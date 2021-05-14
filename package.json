@@ -18,8 +18,12 @@
   },
   "homepage": "https://gitlab.com/soict-it4409/20202/nhom26/hust-calendar#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^4.4.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.12.8",
     "mongoose-auto-increment": "^5.0.1",
