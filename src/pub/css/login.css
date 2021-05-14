@@ -268,3 +268,22 @@ footer a {
 button {
 	cursor: pointer;
 }
+
+#headerLogo {
+	position: fixed;
+    top: 40px;
+    left: 0;
+    z-index: 10;
+}
+
+#headerLogo a {
+    font-family: 'Rubik', sans-serif;
+    color: rgba(250, 250, 250, 0.9);
+	font-size: 22px;
+}
+
+#bk{
+    display: inline;
+    color: #6082ed;
+    margin-left: 50px;
+}

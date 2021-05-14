@@ -102,6 +102,11 @@ body, html {
     font-size: 22px;
 }
 
+#headerLogo a {
+    font-family: 'Rubik', sans-serif;
+    color: rgba(250, 250, 250, 0.9);
+}
+
 #bk{
     display: inline;
     color: #6082ed;

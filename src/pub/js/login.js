@@ -11,4 +11,7 @@ signInButton.addEventListener('click', () => {
 });
 
 const url = new URL(window.location.href);
-
+const isRegis = url.searchParams.get('r');
+if (isRegis == "true") {
+	signUpButton.click();
+}
