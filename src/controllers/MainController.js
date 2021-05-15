@@ -8,7 +8,9 @@ class MainController {
     }
     
     planner(req, res, next) {
-        res.render('page/planner');
+        res.render('page/planner', {
+            layout: 'app'
+        });
     }
 }
 

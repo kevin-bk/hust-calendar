@@ -9,6 +9,9 @@ function route(app){
     app.use('/login', loginRouter);
     app.use('/app', mainRouter);
     app.use('/', homeRouter);
+    app.use('*', function(req, res, next) {
+        res.render('page/notFound');
+    });
 }
 
 module.exports = route;
