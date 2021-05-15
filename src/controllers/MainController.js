@@ -7,10 +7,18 @@ class MainController {
         res.render('page/home');
     }
     
+    // [GET] /app/planner
     planner(req, res, next) {
         res.render('page/planner', {
             layout: 'app'
         });
+    }
+
+    // [GET] /app/todo-list
+    todoList(req, res, next) {
+        res.render('page/todo'), {
+            layout: 'app'
+        }
     }
 }
 
