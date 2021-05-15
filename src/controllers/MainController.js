@@ -16,9 +16,9 @@ class MainController {
 
     // [GET] /app/todo-list
     todoList(req, res, next) {
-        res.render('page/todo'), {
+        res.render('page/todo', {
             layout: 'app'
-        }
+        });
     }
 }
 
