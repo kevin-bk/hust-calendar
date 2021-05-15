@@ -1,19 +1,13 @@
-const mongoose = require('mongoose');
-const mongooseDelete = require('mongoose-delete');
-const autoIncrement = require('../db/autoIncrementPlugin');
-const Schema = mongoose.Schema;
+const Users = require('./schemas/Users');
 
-const User = new Schema({
-  username : {type: String},
-}, {
-  timestamps: true,
-});
+module.exports = {
+    getAllUsers: function(callback) {
+        Users.find({})
+            .then(data => callback(data));
+    },
 
-// add plugin
-User.plugin(mongooseDelete,{ 
-  deletedAt : true,
-  overrideMethods: 'all',
- });
-User.plugin(autoIncrement, 'User');
-
-module.exports = mongoose.model('User', User);
+    getUserById: function(id, callback) {
+        Users.find({_id : id})
+            .then(data => callback(data));
+    }
+}
