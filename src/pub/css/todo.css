@@ -1,0 +1,10 @@
+#single-todo {
+    padding: 10px;
+    font-size: large;
+}
+input:focus{
+    outline: rgb(136, 202, 202);
+}
+.text-through{
+    text-decoration: line-through;
+}

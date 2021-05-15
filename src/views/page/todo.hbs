@@ -1,4 +1,16 @@
-<div class="g26-container g26-display-topmiddle" style="width:60%;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="/css/component/g26.css">
+    <link rel="stylesheet" href="/css/todo.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <div class="g26-container g26-display-topmiddle" style="width:60%;">
     <h2>To-do-list</h2>
     <div class="g26-row g26-padding-32">
         <form action="/add/to-do">
@@ -6,26 +18,25 @@
                 <input class="g26-input" type="text" placeholder="Enter Todo...">
             </div>
             <div class="g26-col m6">
-                <button type="submit" class="g26-button g26-blue">Add to-do</button>
+                <button type="submit" class="g26-button g26-white"> <i class="fas fa-plus"></i></button>
             </div>
         </form>
     </div>
-    <div class="g26-row g26-border-blue">
+    <div class="g26-row g26-border-bottom" id="single-todo">
         <input type="checkbox" class="w3-check">
-        <label for="">Học bài</label>
-        <button class="g26-button g26-red" >Xóa</button>
+        <label for="">We have a large, legal, every day growing universe of lyrics where stars of all genres</label>
+        <button class="g26-button g26-red" style="float: right;">Xóa</button>
     </div>
-    <div class="g26-row g26-border-blue">
+    <div class="g26-row g26-border-bottom" id="single-todo">
         <input type="checkbox" class="w3-check">
-        <label for="">Học bài</label>
-        <button class="g26-button g26-red">Xóa</button>
+        <label for="" class="text-through">We have a large, legal, every day growing universe of </label>
+        <button class="g26-button g26-red" style="float: right;">Xóa</button>
     </div>
-    <div class="g26-row g26-border-blue">
+    <div class="g26-row g26-border-bottom" id="single-todo">
         <input type="checkbox" class="w3-check">
-        <label for="">Học bài</label>
-        <button class="g26-button g26-red">Xóa</button>
+        <label for="">We have a large, legal, every day growing universe of lyrics where stars of all genres</label>
+        <button class="g26-button g26-red" style="float: right;">Xóa</button>
     </div>
 </div>
-<script>
-    
-</script>
+</body>
+</html>
