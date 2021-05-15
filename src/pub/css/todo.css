@@ -5,6 +5,7 @@
 input:focus{
     outline: rgb(136, 202, 202);
 }
-.text-through{
+input[type=checkbox]:checked +label{
     text-decoration: line-through;
+    color: rgb(157, 160, 168);
 }
