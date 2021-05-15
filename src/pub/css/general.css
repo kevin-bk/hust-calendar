@@ -1,0 +1,30 @@
+@import "./component/icon.css";
+@import "./component/button.css";
+@import "./component/g26.css";
+@import "./component/view-component/navbar.css";
+@import "./component/view-component/toolbar.css";
+@import "./component/view-component/content.css";
+@import "./component/view-component/content-weekly.css";
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 13px impo !important;
+}
+
+@font-face {
+    font-family: GG;
+    src: url() format('opentype');
+}
+
+.float-left {
+    /* float: left; */
+    position: absolute;
+    left: 0;
+}
+
+.float-right {
+    /* float: right; */
+    position: absolute;
+    right: 0;
+}

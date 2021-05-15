@@ -39,7 +39,7 @@ app.use(session({
   saveUninitialized: false,
   store: MongoStore.create({ 
     mongoUrl: 'mongodb+srv://g26:khongduoctietlo@cluster0.jmxom.mongodb.net/calendar?retryWrites=true&w=majority',
-    ttl: 3600
+    ttl: 36000
   })
 }));
 

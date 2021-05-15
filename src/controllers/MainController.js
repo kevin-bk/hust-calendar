@@ -1,12 +1,15 @@
 const Users = require('../models/Users');
 
-class HomeController {
+class MainController {
 
     //  [GET] /
     index(req, res, next) {
         res.render('page/home');
     }
     
+    planner(req, res, next) {
+        res.render('page/planner');
+    }
 }
 
-module.exports = new HomeController;
+module.exports = new MainController;

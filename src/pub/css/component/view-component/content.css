@@ -1,0 +1,17 @@
+.content{
+    height: calc(100vh - 100px);
+    width: calc(100% - 80px);
+    position: relative;
+    left: 80px;
+}
+
+.content .view-wrapper{
+    height: 100%;
+    width: 100%;
+    /* background-color: burlywood; */
+    position: relative;
+    padding: 0 20px;
+    box-sizing: border-box;
+    outline: 0;
+    /* display: flex; */
+}

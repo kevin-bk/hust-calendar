@@ -1,0 +1,78 @@
+.m-btn {
+    width: 95px;
+    height: 30px;
+    border-radius: 2px;
+    padding: 5px 30px;
+    border: 1px solid #999;
+    outline: 0;
+    text-align: center;
+    line-height: 99px;
+    font-size: 12px;
+    color: #1b2733;
+    cursor: pointer;
+}
+.m-btn:hover{
+    background-color: #EDEDF2;
+}
+
+.btn-active{
+    background-color: #535353 !important;
+    /* background-color: black !important; */
+    color: #fff!important;
+}
+
+.btn-week {
+    margin-left: 0px;
+    /* line-height: 99px; */
+}
+
+.btn-month {
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+.btn-add{
+    position: relative;
+    top: 15px;
+    width: 70px;
+    height: 70px;
+    outline: none;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.btn-add:hover{
+    background-color: #EDEDF2;
+    border: 1px solid #999!important;
+    border-radius: 50%;
+    opacity: 1;
+}
+.btn-refresh{
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    /* background-color: burlywood; */
+    opacity: 0.5;
+}
+
+.btn-refresh:hover{
+    opacity: 2;
+}
+
+.btn-add-content{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    cursor: pointer;
+}
+
+.btn-show-journal{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    cursor: pointer;
+    /* background-color: burlywood; */
+}
