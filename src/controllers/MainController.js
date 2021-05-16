@@ -15,11 +15,11 @@ class MainController {
     }
 
     // [GET] /app/todo-list
-    todoList(req, res, next) {
-        res.render('page/todo', {
-            layout: 'app'
-        });
-    }
+    // todoList(req, res, next) {
+    //     res.render('page/todo', {
+    //         layout: 'app'
+    //     });
+    // }
 }
 
 module.exports = new MainController;

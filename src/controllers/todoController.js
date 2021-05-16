@@ -1,24 +1,29 @@
-const Todos = require('../models/Todos');
+const Todo = require('../models/schemas/Todos');
 
+
+var data = [{content: 'Đi chơi', done: false}, {content: 'Uống sữa', done: true}];
 class todoController {
 
-    //  [GET] /
-    // index(req, res, next) {
-    //     res.render('page/home');
-    // }
-    
-    // // [GET] /app/planner
-    // planner(req, res, next) {
-    //     res.render('page/planner', {
-    //         layout: 'app'
-    //     });
-    // }
-
-    // [GET] /app/todo-list
     index(req, res, next) {
-        res.render('page/todo', {
-            layout: 'app'
-        });
+        Todo.find().sort({createdAt: -1}).lean()
+            .then( (result) =>{
+                console.log(result);
+                res.render('page/todo', {
+                    todos: result,
+                    layout: 'app'
+                });
+            })
+    }
+    create(req,res, next) {
+        const todo = new Todo(req.body);
+        todo['done'] = false;
+        todo.save()
+            .then( (result)=>{
+                res.redirect('/app/todo-list');
+            })
+            .catch( (err)=>{
+                console.log(err)
+            })
     }
 }
 

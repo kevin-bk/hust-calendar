@@ -9,3 +9,7 @@ input[type=checkbox]:checked +label{
     text-decoration: line-through;
     color: rgb(157, 160, 168);
 }
+.item-row{
+    padding: 5px 10px;
+    border: bisque 1px solid;
+}

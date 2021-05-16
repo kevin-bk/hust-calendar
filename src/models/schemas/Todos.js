@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const mongooseDelete = require('mongoose-delete');
 const autoIncrement = require('../../db/autoIncrementPlugin');
 const Schema = mongoose.Schema;
 
@@ -13,12 +12,5 @@ const Todo = new Schema({
         required: true
     }
 });
-
-// add plugin
-User.plugin(mongooseDelete, {
-    deletedAt: true,
-    overrideMethods: 'all',
-});
-User.plugin(autoIncrement, 'User');
 
 module.exports = mongoose.model('Todo', Todo);
