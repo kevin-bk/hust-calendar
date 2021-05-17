@@ -29,13 +29,22 @@
                 <label for="" style="padding-top: 10px;">{{content}}</label>
             </div>
             <div class="g26-col m4">
-                <button class="g26-button g26-red" style="float: right;display:inline-block">Xóa</button>
+                 <a class="g26-button g26-red delete" data-doc="{{_id}}" style="float: right;">Xóa</a>
             </div>
         </div>
     {{/each}}
 </div>
-</body>
 <script>
-
+    const trashcan = document.querySelector('a.delete');
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/app/todo-list/${trashcan.dataset.doc}`;
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
 </script>
+</body>
 </html>
