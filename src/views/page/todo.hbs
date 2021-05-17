@@ -18,24 +18,23 @@
                 <input class="g26-input" type="text" placeholder="Enter Todo..." name="content">
             </div>
             <div class="g26-col m6">
-                <button type="submit" class="g26-button g26-white"> <i class="fas fa-plus"></i></button>
+                <button type="submit" class="g26-button g26-white add-todo"> <i class="fas fa-plus"></i></button>
             </div>
         </form>
     </div>
     {{#each todos}}
-        <div class="g26-row item-row" >
-            {{!-- <input type="checkbox" class="w3-check" id="checkbox"> --}}
+        <div class="g26-row item-row"  >
             <div class="g26-col m8">
                 <label for="" style="padding-top: 10px;">{{content}}</label>
             </div>
             <div class="g26-col m4">
-                 <a class="g26-button g26-red delete" data-doc="{{_id}}" style="float: right;">Xóa</a>
+                 <a class="g26-button delete-btn" data-doc="{{_id}}" style="float: right;">Xóa</a>
             </div>
         </div>
     {{/each}}
 </div>
 <script>
-    const trashcan = document.querySelector('a.delete');
+    const trashcan = document.querySelector('a.delete-btn');
     trashcan.addEventListener('click', (e) => {
       const endpoint = `/app/todo-list/${trashcan.dataset.doc}`;
       fetch(endpoint, {
