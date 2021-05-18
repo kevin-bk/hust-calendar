@@ -1,10 +1,9 @@
-@import "./component/icon.css";
-@import "./component/button.css";
-@import "./component/g26.css";
-@import "./component/view-component/navbar.css";
-@import "./component/view-component/toolbar.css";
-@import "./component/view-component/content.css";
-@import "./component/view-component/content-weekly.css";
+@import "./icon.css";
+@import "./button.css";
+@import "./g26.css";
+@import "./view-component/navbar.css";
+@import "./view-component/toolbar.css";
+@import "./view-component/content.css";
 
 body {
     margin: 0;

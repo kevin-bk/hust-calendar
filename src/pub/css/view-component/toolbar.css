@@ -84,7 +84,7 @@
         margin-left: 12px;
         background-size: contain;
         background-repeat: no-repeat;
-        background-image: url('../../content/icon/avatar-default.png');
+        background-image: url('/img/icon/avatar-default.png');
         cursor: pointer;
     }
 
@@ -101,5 +101,5 @@
         margin-right: 12px;
         background-size: contain;
         background-repeat: no-repeat;
-        background-image: url('../../content/icon/option.png');
+        background-image: url('/img/icon/option.png');
     }

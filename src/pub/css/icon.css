@@ -2,52 +2,52 @@
 .icon-search{
     height: 30px;
     width: 30px;
-    background-image: url('./../content/icon/icon_agenda.png');
+    background-image: url('/img/icon/icon_agenda.png');
     background-position: 29px -29px;
 }
 
 .icon-planner{
     height: 30px;
     width: 30px;
-    background-image: url('./../content/icon/icon_agenda.png');
+    background-image: url('/img/icon/icon_agenda.png');
     background-position: 86px -30px;
 }
 .icon-event{
     height: 30px;
     width: 30px;
-    background-image: url('./../content/icon/icon_agenda.png');
+    background-image: url('/img/icon/icon_agenda.png');
     background-position: 86px 1px;
 }
 .icon-list{
     height: 30px;
     width: 30px;
-    background-image: url('./../content/icon/icon_agenda.png');
+    background-image: url('/img/icon/icon_agenda.png');
     background-position: 1px 0px;
 }
 .icon-logo{
     height: 30px;
     width: 30px;
-    background-image: url('./../content/icon/icon_agenda.png');
+    background-image: url('/img/icon/icon_agenda.png');
     background-position: -29px -29px;
 }
 .icon-setting{
     height: 30px;
     width: 30px;
-    background-image: url('./../content/icon/icon_agenda.png');
+    background-image: url('/img/icon/icon_agenda.png');
     background-position: 29px -58px;
 }
 /* icon phan toolbar=========================================== */
 .icon-arrow-left{
     height: 20px;
     width: 20px;
-    background-image: url('./../content/icon/icon-arrow-left.png');
+    background-image: url('/img/icon/icon-arrow-left.png');
     transform: rotate(0deg);
     background-size: cover;
 }
 .icon-arrow-right{
     height: 20px;
     width: 20px;
-    background-image: url('./../content/icon/icon-arrow-left.png');
+    background-image: url('/img/icon/icon-arrow-left.png');
     transform: rotate(180deg);
     background-size: cover;
     /* float: right; */
@@ -55,7 +55,7 @@
 .icon-add{
     height: 30px;
     width: 30px;
-    background-image: url('./../content/icon/icon-add.png');
+    background-image: url('/img/icon/icon-add.png');
     background-size: cover;
     position: absolute;
     left: 50%;
@@ -66,7 +66,7 @@
 .icon-refresh{
     height: 30px;
     width: 30px;
-    background-image: url('./../content/icon/icon-refresh.png');
+    background-image: url('/img/icon/icon-refresh.png');
     position: absolute;
     left: 50%;
     top: 50%;
@@ -75,7 +75,7 @@
 }
 /* icon phan content ================================== */
 .icon-add-content{
-    background-image: url('./../content/icon/icon-add.png');
+    background-image: url('/img/icon/icon-add.png');
     background-size: cover;
     position: absolute;
     left: 50%;
@@ -89,7 +89,7 @@
 }
 
 .icon-journal{
-    background-image: url('./../content/icon/icon_agenda.png');
+    background-image: url('/img/icon/icon_agenda.png');
     background-position: 86px -88px;
     position: absolute;
     left: 50%;
