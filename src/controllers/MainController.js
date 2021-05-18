@@ -4,22 +4,19 @@ class MainController {
 
     //  [GET] /
     index(req, res, next) {
-        res.render('page/home');
+        res.render('page/home', {
+            layout: 'blank'
+        });
     }
     
     // [GET] /app/planner
     planner(req, res, next) {
-        res.render('page/planner', {
-            layout: 'app'
-        });
+        res.render('page/planner');
     }
 
-    // [GET] /app/todo-list
-    // todoList(req, res, next) {
-    //     res.render('page/todo', {
-    //         layout: 'app'
-    //     });
-    // }
+    app(req, res, next) {
+        res.render('page/app');
+    }
 }
 
 module.exports = new MainController;

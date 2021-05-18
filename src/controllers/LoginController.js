@@ -4,7 +4,9 @@ class LoginController {
 
     //  [GET] /login
     index(req, res, next) {
-        res.render('page/login');
+        res.render('page/login', {
+            layout: 'blank'
+        });
     }
 
     // [POST] /login
@@ -13,7 +15,7 @@ class LoginController {
         const password = req.body.password;
         Users.Authenticate(email, password, function(result) {
             req.session.userId = email;
-            res.redirect("/app/planner");
+            res.redirect("/app");
         })
     }
 }

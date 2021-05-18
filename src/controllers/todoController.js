@@ -7,8 +7,7 @@ class todoController {
         Todo.find().sort({createdAt: -1}).lean()
             .then( (result) =>{
                 res.render('page/todo', {
-                    todos: result,
-                    layout: 'app'
+                    todos: result
                 });
             })
     }
