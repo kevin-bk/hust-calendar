@@ -1,0 +1,105 @@
+.toolbar {
+    position: relative;
+    display: flex;
+    left: 80px;
+    height: 100px;
+    margin: 0px 20px;
+    padding: 0px 15px;
+    width: calc(100% - 120px);
+    border-bottom: 1px solid rgba(210, 210, 223, .4);
+}
+
+/* ===================================== */
+.toolbar .date-switcher {
+    position: relative;
+    display: flex;
+    float: left;
+    height: 34px;
+    width: 276px;
+    margin-top: 35px;
+    padding-right: 44px;
+    margin-right: 10px;
+}
+
+.toolbar .arrow {
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+}
+
+.toolbar .current-calendar {
+    height: 34px;
+    width: calc(100% - 40px);
+    color: #dc665d;
+    line-height: 34px;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: .05em;
+    font-weight: bolder;
+    font-size: 12px;
+    cursor: default;
+}
+/* ============================================= */
+.toolbar .view-switcher {
+    position: relative;
+    display: flex;
+    height: 99px;
+    width: 414px;
+    /* background-color: burlywood; */
+    letter-spacing: .05em;
+    line-height: 99px;
+}
+
+.toolbar .calendar-view {
+    line-height: 100px;
+}
+/* ================================================ */
+.toolbar .functional-area{
+    position: relative;
+    display: flex;
+    margin-left: 30px;
+    height: 100px;
+    width: 150px;
+    /* background-color: burlywood; */
+}
+/* ================= */
+.user-tag {
+    position: absolute;
+    right: 0;
+    height: 50px;
+    display: flex;
+    width: 250px;
+    align-items: center;
+    padding-left: 16px;
+    justify-content:space-between;
+    margin-right:10px;
+    margin-top: 25px;
+    font-weight: bolder;
+    font-size: 12px;
+}
+
+    .user-tag .avatar {
+        width: 40px;
+        height: 40px;
+        margin-left: 12px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url('../../content/icon/avatar-default.png');
+        cursor: pointer;
+    }
+
+
+.user-tag .username{
+    margin-left:10px;
+
+}
+
+    .user-tag .more {
+        width: 20px;
+        height: 20px;
+        margin-left: 12px;
+        margin-right: 12px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url('../../content/icon/option.png');
+    }

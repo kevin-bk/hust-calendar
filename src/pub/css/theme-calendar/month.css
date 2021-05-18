@@ -1,0 +1,139 @@
+.content .view-wrapper {
+    /* overflow: auto; */
+    height: 100%;
+    width: 100%;
+    /* background-color: burlywood; */
+    position: relative;
+    padding: 0 20px;
+    box-sizing: border-box;
+    outline: 0;
+    /* display: flex; */
+}
+
+.cld-main {
+    width: 100%;
+}
+
+.cld-main a {
+    color: #7B00FF;
+}
+
+.cld-datetime {
+    position: relative;
+    width: 80%;
+    /* min-width: 100px; */
+    /* max-width: 300px; */
+    margin: auto;
+    overflow: hidden;
+}
+
+.cld-datetime .today {
+    position: relative;
+    float: left;
+    width: calc(100% - 40px);
+    margin: auto;
+    text-align: center;
+}
+
+.cld-nav {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+}
+
+.cld-nav:hover {
+    cursor: pointer;
+}
+
+.cld-nav:hover svg {
+    fill: #666;
+}
+
+.cld-rwd {
+    float: left;
+}
+
+.cld-fwd {
+    float: right;
+}
+
+.cld-labels {
+    position: sticky;
+    top: 0px;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.cld-labels, .cld-days {
+    padding-left: 0;
+    overflow: auto;
+}
+
+.cld-label, .cld-day {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+}
+
+.cld-day {
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    height: 290px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.cld-day.clickable:hover {
+    cursor: pointer;
+}
+
+.cld-day.today {
+    border: 3px solid #DC665D;
+}
+
+.cld-day.disableDay {
+    opacity: 0.5;
+}
+
+.cld-day.nextMonth, .cld-day.prevMonth {
+    opacity: 0.33;
+}
+
+.cld-number {
+    margin: 0;
+    text-align: left;
+}
+
+.cld-title {
+    font-size: 10px;
+    display: block;
+    margin: 0;
+    font-weight: normal;
+}
+
+.cld-day:hover {
+    background: #eee;
+}
+
+.cld-number.eventday {
+    font-weight: bold;
+}
+
+.cld-number.eventday:hover {
+    background: #eee;
+}
+
+.weekToday {
+    position: relative;
+    float: left;
+    width: 66%;
+    /* margin: auto; */
+    color: #DC665D;
+    text-align: center;
+    font-weight: bolder;
+}
