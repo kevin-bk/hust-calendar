@@ -1,13 +1,5 @@
 <head>
-    <link id="init-css" rel="stylesheet" href="">
-    <!--Week css ===================================== -->
-    {{!-- <link rel="stylesheet" href="/css/theme-calendar/content-weekly.css"> --}}
-
-    <!--Week css ===================================== -->
-    <link rel="stylesheet" href="/css/theme-calendar/month.css">
-
-    <!--Week css ===================================== -->
-    {{!-- <link rel="stylesheet" href="/css/theme-calendar/year.css"> --}}
+    <link id="calendar-css" rel="stylesheet" href="">
 </head>
 <!-- App =============================================================== -->
 {{>tool-bar}}
@@ -16,15 +8,13 @@
     <div class="view-wrapper">
         <div id="year-view"></div>
         <div id="week-view"></div>
-        <div id="month-calendar"></div>
-        
+        <div id="month-view"></div>
+
     </div>
 </div>
 
 <script type="text/javascript" src="/js/app/Calendar.js"></script>
-{{!-- <script type="text/javascript" src="/js/app/WeekInterface/WeekCalendar.js"></script>
-<script type="text/javascript" src="/js/app/YearInterface/YearCalendar.js"></script> --}}
-<script type="text/javascript" src="/js/app/MonthCalendar.js"></script>
-
+<div id="calendar-js">
+    <script id="calendar-js" type="text/javascript" src=""></script>
+</div>
 <script type="text/javascript" src="/js/app/run.js"></script>
-
