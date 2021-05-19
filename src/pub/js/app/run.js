@@ -25,6 +25,9 @@ function clearCalendar() {
     WEEK_SELECTOR.innerHTML = '';
     MONTH_SELECTOR.innerHTML = '';
     YEAR_SELECTOR.innerHTML = '';
+    WEEK_BUTTON_SELECTOR.classList.remove('btn-active');
+    MONTH_BUTTON_SELECTOR.classList.remove('btn-active');
+    YEAR_BUTTON_SELECTOR.classList.remove('btn-active');
 }
 
 // Update lại data trong calendar
@@ -45,13 +48,16 @@ function updateCalendar(element, cssLink, jsLink) {
 }
 
 // init and add event to DOM
-updateCalendar(WEEK_SELECTOR, WEEK_CSS, WEEK_JS);
 WEEK_BUTTON_SELECTOR.onclick = function() {
     updateCalendar(WEEK_SELECTOR, WEEK_CSS, WEEK_JS);
+    WEEK_BUTTON_SELECTOR.classList.add('btn-active');
 }
 MONTH_BUTTON_SELECTOR.onclick = function() {
     updateCalendar(MONTH_SELECTOR, MONTH_CSS, MONTH_JS);
+    MONTH_BUTTON_SELECTOR.classList.add('btn-active');
 }
 YEAR_BUTTON_SELECTOR.onclick = function() {
     updateCalendar(YEAR_SELECTOR, YEAR_CSS, YEAR_JS);
+    YEAR_BUTTON_SELECTOR.classList.add('btn-active');
 }
+WEEK_BUTTON_SELECTOR.click();
