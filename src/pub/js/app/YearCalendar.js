@@ -23,8 +23,6 @@ function createCalendar(calendar, element, adjuster) {
 
     // Tạo thẻ chuyển năm 
     function AddDateTime() {
-        // clear 
-        // document.getElementById('datetime').remove();
 
         var datetime = document.createElement('div');
         datetime.className += "cld-datetime";
