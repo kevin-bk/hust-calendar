@@ -1,63 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo list</title>
     <link rel="stylesheet" href="/css/component/g26.css">
-    <link rel="stylesheet" href="/css/todo.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    {{!--
+    <link rel="stylesheet" href="/css/todo.css"> --}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <style type="text/css">
+        .todo-interface {
+            position: relative;
+            display: block;
+            left: 80px;
+            height: 100vh;
+            margin: 0px 20px;
+            padding: 0px 150px;
+            width: calc(100% - 120px);
+            border-bottom: 1px solid rgba(210, 210, 223, .4);
+            /* background-color: burlywood; */
+        }
+
+        .todo-interface .header {
+            position: relative;
+            /* background-color: silver; */
+            line-height: 100px;
+            border-bottom: 2px solid black;
+        }
+
+        .todo-content {
+            padding: 20px 50px;
+        }
+
+        .todo-interface .add-content {
+            display: none;
+            /* display: block; */
+            height: 120px;
+            width: 100%;
+            /* background-color: burlywood; */
+        }
+
+        .todo-interface .btn-add-task {
+            text-align: left;
+            width: 100%;
+            height: 40px;
+            margin-left: -2px;
+            padding: 0 0 8px 8px;
+            /* color: grey; */
+            font-size: 20px;
+            white-space: nowrap;
+            display: flex;
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        .todo-interface .btn-add-task:hover {
+            opacity: 1;
+            color: red;
+        }
+
+        .icon-add-zone {
+            height: 21px !important;
+            width: 21px;
+            background-color: red;
+            /* line-height: 32px; */
+            /* margin: auto; */
+            align-self: center;
+            position: relative;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        #icon-add {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .edit-area {
+            width: 100%;
+            height: 72px;
+            border: 1px solid black;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .input-todo {
+            height: 100%;
+            width: 100%;
+            border: none;
+            padding-left: 10px;
+            font-size: 18px;
+        }
+
+        .todo-interface .form-action {
+            position: relative;
+            width: 100%;
+            height: 37px;
+            /* background-color: silver; */
+        }
+
+        .todo-interface .btn-add-todo {
+            height: 100%;
+            border: 1px solid transparent;
+            font-weight: 700;
+            font-size: 13px !important;
+            line-height: 17px;
+            margin-right: 5px;
+            color: #fff !important;
+            background-color: #db4c3f;
+            text-align: center;
+            border-radius: 3px;
+            width: 100px;
+        }
+
+        .todo-interface .btn-cancel-todo {
+            height: 100%;
+            border: 1px solid transparent;
+            font-weight: 700;
+            font-size: 13px !important;
+            line-height: 17px;
+            margin-right: 5px;
+            /* color: #fff !important; */
+            /* background-color: #db4c3f; */
+            text-align: center;
+            border-radius: 3px;
+            width: 80px;
+        }
+
+        /* ================== */
+        #single-todo {
+            padding: 10px;
+            font-size: large;
+        }
+
+        input:focus {
+            outline: rgb(136, 202, 202);
+        }
+
+        input[type=checkbox]:checked+label {
+            text-decoration: line-through;
+            color: rgb(157, 160, 168);
+        }
+
+        .item-row {
+            padding-left: 10px;
+            margin: 5px 0px;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .delete-btn {
+            border: none;
+            background: #404040;
+            color: #ffffff !important;
+            font-weight: 80;
+            /* padding: 10px; */
+            /* text-transform: uppercase; */
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+            height: 50px;
+            line-height: 50px !important;
+            padding: 0 !important;
+            width: 50px !important;
+        }
+
+        .delete-btn:hover {
+            color: #404040 !important;
+            font-weight: 700 !important;
+            letter-spacing: 3px;
+            background: none;
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+            transition: all 0.3s ease 0s;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="g26-container g26-display-topmiddle" style="width:60%;">
-    <h2>To-do-list</h2>
-    <div class="g26-row g26-padding-32">
-        <form action="/app/todo-list" method="POST">
-            <div class="g26-col m6">
-                <input class="g26-input" type="text" required placeholder="Enter Todo..." name="content">
-            </div>
-            <div class="g26-col m6">
-                <button type="submit" class="g26-button g26-white add-todo"> <i class="fas fa-plus"></i></button>
-            </div>
-        </form>
-    </div>
-    {{#each todos}}
-        <div class="g26-row item-row"  >
-            <div class="g26-col m8">
-                <label for="" style="padding-top: 10px;">{{content}}</label>
-            </div>
-            <div class="g26-col m4">
-                 <a class="g26-button delete-btn" data-doc="{{_id}}" style="float: right;">Xóa</a>
-            </div>
+    <div class="todo-interface">
+        <div class="g26-container g26-display-topmiddle header" style="width:100%;height:100px; text-align:center;">
+            <h2 style="margin:0;">To-do-list</h2>
         </div>
-    {{/each}}
-</div>
-<script>
-    const trashcan = document.querySelector('a.delete-btn');
-    trashcan.addEventListener('click', (e) => {
-      const endpoint = `/app/todo-list/${trashcan.dataset.doc}`;
-      fetch(endpoint, {
-        method: 'DELETE',
-      })
-      .then(response => response.json())
-      .then(data => window.location.href = data.redirect)
-      .catch(err => console.log(err));
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-    var elements = document.getElementsByTagName("INPUT");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].oninvalid = function(e) {
-            e.target.setCustomValidity("");
-            if (!e.target.validity.valid) {
-                e.target.setCustomValidity("Không được để trống!");
+        <div class="todo-content">
+            <!-- Form nhập todo  -->
+            <form class="add-content" id="form-add" action="/app/todo-list" method="POST">
+                <div class="edit-area">
+                    <input class="input-todo" type="text" required name="content" placeholder="Enter Todo">
+                </div>
+                <div class="form-action">
+                    <button type="submit" class="btn-add-todo">Add Task</button>
+                    <button class="btn-cancel-todo" onclick="cancelAddForm()">Cancel</button>
+                </div>
+            </form>
+            <!-- Line Add Task  -->
+            <div class="btn-add-task" id="btn-add" onclick="openAddForm()">
+                <div class="icon-add-zone" aria-hidden="true">
+                    <svg id="icon-add">
+                        <path
+                            d="M6 6V.5a.5.5 0 0 1 1 0V6h5.5a.5.5 0 1 1 0 1H7v5.5a.5.5 0 1 1-1 0V7H.5a.5.5 0 0 1 0-1H6z"
+                            fill="white" fill-rule="evenodd"></path>
+                    </svg>
+                </div>
+                Add Task
+            </div>
+            {{#each todos}}
+            <div class="g26-row item-row">
+                <div class="g26-col m8">
+                    <label for="" style="padding-top: 10px;">{{content}}</label>
+                </div>
+                <div class="g26-col m4">
+                    <a class="g26-button delete-btn" data-doc="{{_id}}" style="float: right;">Xóa</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <script>
+        const trashcan = document.querySelector('div.delete-btn');
+        trashcan.addEventListener('click', (e) => {
+            const endpoint = `/app/todo-list/${trashcan.dataset.doc}`;
+            fetch(endpoint, {
+                method: 'DELETE',
+            })
+                .then(response => response.json())
+                .then(data => window.location.href = data.redirect)
+                .catch(err => console.log(err));
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            var elements = document.getElementsByTagName("INPUT");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].oninvalid = function (e) {
+                    e.target.setCustomValidity("");
+                    if (!e.target.validity.valid) {
+                        e.target.setCustomValidity("Không được để trống!");
+                    }
+                };
+                elements[i].oninput = function (e) {
+                    e.target.setCustomValidity("");
+                };
             }
-        };
-        elements[i].oninput = function(e) {
-            e.target.setCustomValidity("");
-        };
-    }
-})
-</script>
+
+        })
+        // Chú ý tên hàm nếu đưa ra project có thể bị trùng
+        function openAddForm() {
+            document.getElementById('form-add').style.display = "block";
+            document.getElementById('btn-add').style.display = "none"
+        }
+        function cancelAddForm() {
+            document.getElementById('form-add').style.display = "none";
+            document.getElementById('btn-add').style.display = "flex"
+        }
+    </script>
 </body>
+
 </html>
