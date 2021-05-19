@@ -226,7 +226,7 @@
         </div>
     </div>
     <script>
-        const trashcan = document.querySelector('div.delete-btn');
+        const trashcan = document.querySelector('a.delete-btn');
         trashcan.addEventListener('click', (e) => {
             const endpoint = `/app/todo-list/${trashcan.dataset.doc}`;
             fetch(endpoint, {
