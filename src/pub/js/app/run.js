@@ -10,7 +10,7 @@ const YEAR_BUTTON_SELECTOR = document.getElementById('view-year');
 const TODAY_BUTTON_SELECTOR = document.getElementById('view-today');
 
 // Link css for week, month, year view
-const WEEK_CSS = "/css/theme-calendar/content-weekly.css";
+const WEEK_CSS = "/css/theme-calendar/week.css";
 const MONTH_CSS = "/css/theme-calendar/month.css";
 const YEAR_CSS = "/css/theme-calendar/year.css";
 

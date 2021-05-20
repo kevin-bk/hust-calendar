@@ -10,7 +10,9 @@ function route(app){
     app.use('/app', mainRouter);
     app.use('/', homeRouter);
     app.use('*', function(req, res, next) {
-        res.render('page/notFound');
+        res.render('page/notFound', {
+            layout: 'blank'
+        });
     });
 }
 
