@@ -7,7 +7,6 @@
     <title>Todo list</title>
     <link rel="stylesheet" href="/css/component/g26.css">
     <link rel="stylesheet" href="/css/todo.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
     <div class="g26-container g26-display-topmiddle" style="width:60%;">
@@ -34,7 +33,8 @@
     {{/each}}
 </div>
 <script>
-    const trashcan = document.querySelector('a.delete-btn');
+    {{!-- const trashcan = document.querySelector('a.delete-btn'); --}}
+    {{!-- console.log(trashcan);
     trashcan.addEventListener('click', (e) => {
       const endpoint = `/app/todo-list/${trashcan.dataset.doc}`;
       fetch(endpoint, {
@@ -43,7 +43,19 @@
       .then(response => response.json())
       .then(data => window.location.href = data.redirect)
       .catch(err => console.log(err));
-    });
+    }); --}}
+    var trashcan = document.getElementsByClassName('delete-btn');
+    for(index=0 ; index< trashcan.length ; index++){
+        trashcan[index].addEventListener('click', (e) => {
+        const endpoint = `/app/todo-list/${e.target.dataset.doc}`;
+        fetch(endpoint, {
+            method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(data => window.location.href = data.redirect)
+        .catch(err => console.log(err));
+        });
+    }
     document.addEventListener("DOMContentLoaded", function() {
     var elements = document.getElementsByTagName("INPUT");
     for (var i = 0; i < elements.length; i++) {
