@@ -17,5 +17,16 @@ module.exports = {
     getUserById: function(id, callback) {
         Users.find({_id : id})
             .then(data => callback(data));
+    },
+
+    createUser: function(user, callback) {
+        User = new Users(user);
+        User.save()
+            .then(() => callback());
+    },
+
+    updateUser: function(userID, data, callback) {
+        Users.updateOne({ _id: userID }, data)
+            .then(() => callback());
     }
 }

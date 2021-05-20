@@ -15,7 +15,10 @@ const User = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    followUsers: [{type: String}],
+    followEvents: [{type: String}],
+    avatar: { type: String }
 });
 
 // add plugin
