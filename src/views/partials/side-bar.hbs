@@ -1,36 +1,49 @@
+<link rel="stylesheet" href="/css/view-component/setting.css">
+
 <div class="navbar">
-        <div class="top-item fti">
-            <div class="sub-item">
-                <div class="icon-space" title="Search">
-                    <div class="icon-search"></div>
-                </div>
-            </div>
-            <div class="sub-item item-active">
-                <div class="icon-space" title="Planner">
-                    <div class="icon-planner"></div>
-                </div>
-            </div>
-            <div class="sub-item">
-                <div class="icon-space" title="Events">
-                    <div class="icon-event"></div>
-                </div>
-            </div>
-            <div class="sub-item">
-                <div class="icon-space" title="To do list">
-                    <div class="icon-list"></div>
-                </div>
+    <div class="top-item fti">
+        <div class="sub-item">
+            <div class="icon-space" title="Search">
+                <div class="icon-search"></div>
             </div>
         </div>
-        <div class="bottom-item">
-            <div class="sub-item">
-                <div class="icon-space" title="Setting">
-                    <div class="icon-setting"></div>
-                </div>
+        <div class="sub-item item-active">
+            <div class="icon-space" title="Planner">
+                <div class="icon-planner"></div>
             </div>
-            <div class="sub-item">
-                <div class="icon-space">
-                    <div class="icon-logo"></div>
-                </div>
+        </div>
+        <div class="sub-item">
+            <div class="icon-space" title="Events">
+                <div class="icon-event"></div>
+            </div>
+        </div>
+        <div class="sub-item">
+            <div class="icon-space" title="To do list">
+                <div class="icon-list"></div>
             </div>
         </div>
     </div>
+    <div class="bottom-item">
+        <div class="sub-item" onclick="show_settings()">
+            <div class="icon-space" title="Setting">
+                <div class="icon-setting"></div>
+            </div>
+        </div>
+        <div class="sub-item">
+            <div class="icon-space">
+                <div class="icon-logo"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- setting -->
+<div class="modal-content position-modal-setting" id="modal-setting" style="display: none;">
+    <div class="container">
+        <div class="items-setting">Pair with Edo Agenda Paper</div>
+        <div class="items-setting">Upgrade to premium</div>
+        <div class="items-setting">Manage external calendars (Premium)</div>
+        <div class="items-setting" onclick="open_profile()">Profile</div>
+        <div class="items-setting">Logout</div>
+    </div>
+</div>

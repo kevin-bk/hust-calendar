@@ -184,3 +184,7 @@
   .cld-fwd {
     float: right;
   }
+
+  .create-task-area {
+      display: none !important;
+  }

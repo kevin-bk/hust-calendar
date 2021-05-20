@@ -7,6 +7,7 @@ const JS_SELECTOR = document.getElementById('calendar-js');
 const WEEK_BUTTON_SELECTOR = document.getElementById('view-week');
 const MONTH_BUTTON_SELECTOR = document.getElementById('view-month');
 const YEAR_BUTTON_SELECTOR = document.getElementById('view-year');
+const TODAY_BUTTON_SELECTOR = document.getElementById('view-today');
 
 // Link css for week, month, year view
 const WEEK_CSS = "/css/theme-calendar/content-weekly.css";
@@ -60,4 +61,7 @@ YEAR_BUTTON_SELECTOR.onclick = function() {
     updateCalendar(YEAR_SELECTOR, YEAR_CSS, YEAR_JS);
     YEAR_BUTTON_SELECTOR.classList.add('btn-active');
 }
-WEEK_BUTTON_SELECTOR.click();
+TODAY_BUTTON_SELECTOR.onclick = function() {
+    WEEK_BUTTON_SELECTOR.click();
+}
+TODAY_BUTTON_SELECTOR.click();
