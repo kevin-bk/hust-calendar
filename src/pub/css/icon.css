@@ -101,3 +101,35 @@
     margin-top: 2px;
     opacity: 0.5;
 }
+
+.icon-add-task{
+    background-image: url('/img/icon/icon-agenda-2.png');
+    background-position: 18.36735% 79.69925%;
+    background-size: 835%;
+    width: 20px;
+    height: 20px;
+}
+
+.icon-add-todo-list{
+    background-image: url('/img/icon/icon-agenda-2.png');
+    background-position: 0 100%;
+    background-size: 835%;
+    width: 20px;
+    height: 20px;
+}
+
+.icon-add-note{
+    background-image: url('/img/icon/icon-agenda-2.png');
+    background-position: 44.21769% 30.82707%;
+    background-size: 835%;
+    width: 20px;
+    height: 20px;
+}
+
+.icon-add-event{
+    background-image: url('/img/icon/icon-agenda-2.png');
+    background-position: -13.78231% 30.82707%;
+    background-size: 835%;
+    width: 20px;
+    height: 20px;
+}

@@ -1,0 +1,101 @@
+.add-event{
+    height: 500px;
+    width: 510px;
+    /* background-color: burlywood; */
+    padding: 15px;
+    display: block;
+    border: 1px solid black;
+}
+.add-event .event-details{
+    width: 100%;
+    height: 60px;
+    /* background-color: silver; */
+    display: block;
+}
+
+.add-event .form-footer{
+    width: 100%;
+    height: 20%;
+    background-color: #fff;
+    margin-top: 25px;
+}
+
+.add-event .task-action{
+    width: 100%;
+    height: 62px;
+    padding: 20px 10px 10px;
+    font-weight: 200;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 1.0);
+    border-bottom: 1px solid rgba(210, 210, 223, .4);
+    position: relative;
+    display: flex;
+    cursor: default;
+    top: 20px;
+}
+ 
+.add-event .input-action{
+    border: none;
+    /* border-color: rgba(210, 210, 223, .4); */
+    outline: none;
+    height: 31px;
+    width: 50%;
+    float: right;
+    position: absolute;
+    right: 0;
+}
+
+.add-event .align-center{
+    align-self: center;
+}
+
+.event-details input{
+    border: none;
+    outline: none;
+    height: 40%;
+    width: 100%;
+    margin: 8px;
+}
+
+.event-details .event-description{
+    position: relative;
+    left: 5px;
+    bottom: 0;
+    border-left: 2px solid #f5f5f5;
+    padding-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.add-event .input-checkbox{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 0;
+}
+
+.add-event .txt{
+    position: relative;
+    left: 20px;
+    
+}
+
+.add-event {
+    position: absolute;
+    top: 0;
+    border: none;
+}
+
+.form-modal {
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.4);
+}
+
+.event-title {
+    color: #21262b;
+    font-family: 'Open Sans', sans-serif;
+}

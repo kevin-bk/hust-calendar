@@ -8,6 +8,7 @@ const WEEK_BUTTON_SELECTOR = document.getElementById('view-week');
 const MONTH_BUTTON_SELECTOR = document.getElementById('view-month');
 const YEAR_BUTTON_SELECTOR = document.getElementById('view-year');
 const TODAY_BUTTON_SELECTOR = document.getElementById('view-today');
+const ADD_EVENT_BUTTON = document.getElementById('add-event');
 
 // Link css for week, month, year view
 const WEEK_CSS = "/css/theme-calendar/week.css";
@@ -64,4 +65,13 @@ YEAR_BUTTON_SELECTOR.onclick = function() {
 TODAY_BUTTON_SELECTOR.onclick = function() {
     WEEK_BUTTON_SELECTOR.click();
 }
+// Go to today
 TODAY_BUTTON_SELECTOR.click();
+
+// Add event button. Display add event form when click, and hide when cancel
+ADD_EVENT_BUTTON.onclick = function() {
+    document.getElementById('form-modal').style.display = 'block';
+    document.getElementById('cancel-add-event').onclick = function() {
+        document.getElementById('form-modal').style.display = 'none';
+    }
+}
