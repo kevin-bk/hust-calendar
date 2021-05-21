@@ -14,7 +14,8 @@ module.exports = {
     createEvent: function(event, callback) {
         const Event = new EventModel(event);
         Event.save()
-            .then(() => callback());
+            .then(() => callback(true))
+            .catch(() => callback(false));
     },
 
     updateEvent: function(eventID, data, callback) {

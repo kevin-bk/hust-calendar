@@ -6,11 +6,12 @@ const Schema = mongoose.Schema;
 const Event = new Schema({
     name: { type: String },
     description: { type: String },
-    timeStart: { type: Date },
-    timeEnd: { type: Date },
+    date: { type: Date},
+    timeStart: { type: String },
+    timeEnd: { type: String },
     owner: { type: String },
     type: { type: String },
-    public: { type: Boolean },
+    private: { type: Boolean },
     followers: [{ type: String }],
     image: { type: String }
 });
