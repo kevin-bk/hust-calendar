@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" href="/css/general.css">
     <link rel="stylesheet" href="/css/form/add-event.css">
+    <link rel="stylesheet" href="/css/notification.css">
 </head>
 
 <body>
@@ -11,7 +12,7 @@
                     <div class="event-details">
                         <input id="name" class="event-title g26-animate-input"
                             placeholder="Write event name here..."></input>
-                            <p id="vld-name"></p>
+                        <p id="vld-name"></p>
                         <br />
                         <input id="description" class="event-description g26-animate-input"
                             placeholder="Write a description..."></input>
@@ -19,7 +20,7 @@
                     <div class="task-action">
                         <div class="icon-add-task align-center"></div>
                         <div class=" align-center txt">Date</div>
-                        <p id="vld-date" ></p>
+                        <p id="vld-date"></p>
                         <input id="date" type="date" class="input-action">
                         <br />
                     </div>
@@ -56,5 +57,11 @@
         </dialog>
     </div>
 
+    <div id="notify">
+        <div id="img"><i class="fas fa-check-circle"></i></div>
+        <div id="desc">Create event successfully</div>
+    </div>
+
+    <script src="/js/component/notification.js"></script>
     <script src="/js/validateForm.js"></script>
 </body>
