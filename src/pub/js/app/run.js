@@ -76,27 +76,27 @@ ADD_EVENT_BUTTON.onclick = function() {
         document.getElementById('form-modal').style.display = 'none';
     }
 
-    document.getElementById('submit-add-event').onclick = function(event) {
-        event.preventDefault();
-        const data = {
-            name: document.getElementById('name').value,
-            description: document.getElementById('description').value,
-            date: document.getElementById('date').value,
-            timeStart: document.getElementById('timeStart').value,
-            timeEnd: document.getElementById('timeEnd').value,
-            location: document.getElementById('location').value,
-            private: document.getElementById('public').checked
-        }
-        fetch('/api/create-event', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-              },
-            body: JSON.stringify(data)
-        })
-            .then(response => response.json())
-            .then( data => {
-                console.log(data['message']);
-            })
-    }
+    // document.getElementById('submit-add-event').onclick = function(event) {
+    //     event.preventDefault();
+    //     const data = {
+    //         name: document.getElementById('name').value,
+    //         description: document.getElementById('description').value,
+    //         date: document.getElementById('date').value,
+    //         timeStart: document.getElementById('timeStart').value,
+    //         timeEnd: document.getElementById('timeEnd').value,
+    //         location: document.getElementById('location').value,
+    //         private: document.getElementById('public').checked
+    //     }
+    //     fetch('/api/create-event', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //           },
+    //         body: JSON.stringify(data)
+    //     })
+    //         .then(response => response.json())
+    //         .then( data => {
+    //             console.log(data['message']);
+    //         })
+    // }
 }
