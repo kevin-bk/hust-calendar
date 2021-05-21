@@ -10,8 +10,8 @@ class MainController {
     }
     
     // [GET] /app/planner
-    planner(req, res, next) {
-        res.render('page/planner');
+    events(req, res, next) {
+        res.render('page/events');
     }
 
     app(req, res, next) {
