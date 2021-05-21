@@ -42,5 +42,22 @@ module.exports = {
     deleteEvent: function(evenID, callback) {
         EventModel.delete({ _id: evenID })
             .then(() => callback());
+    },
+
+    deleteAll: function(callback) {
+        EventModel.deleteMany({})
+            .then(() => callback());
+    },
+
+    getEventAtDate: function(userID, date, callback) {
+        EventModel.find({ date: date})
+            .then(data => callback(data))
+            .catch(err => callback(err));
+    },
+
+    getEventBetweenDate: function(userID, date1, date2, callback) {
+        EventModel.find({ owner: userID})
+            .where('date').gt(date1).lt(date2)
+            .then(data => callback(data));
     }
 }
