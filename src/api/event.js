@@ -30,6 +30,15 @@ class EventApi {
         })
     }
 
+    getAll(req, res) {
+        EventModel.getAll(req.session.userId, function(events) {
+            if (events) {
+                res.json(events);
+            }
+            else res.json(false);
+        })
+    }
+
     test(req, res, next) {
         res.json(req.session.userId);
         // var date = new Date(2021, 4, 19);

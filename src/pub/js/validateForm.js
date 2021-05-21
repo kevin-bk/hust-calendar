@@ -1,5 +1,5 @@
 function validateForm() {
-    return true;
+    // return true;
     var name, date, start, end;
     var nameText, dateText, startText, endText;
 

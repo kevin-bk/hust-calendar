@@ -59,5 +59,11 @@ module.exports = {
         EventModel.find({ owner: userID})
             .where('date').gt(date1).lt(date2)
             .then(data => callback(data));
+    },
+
+    getAll: function(userID, callback) {
+        EventModel.find({ owner: {$ne: userID}})
+            .then(events => callback(events))
+            .catch(() => callback(false));
     }
 }

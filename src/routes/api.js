@@ -8,6 +8,8 @@ router.get('/getAllUsers', Users.getAllUsers);
 
 router.post('/create-event', Events.create);
 router.get('/delete-all-event', Events.deleteAll);
+router.get('/event/get-all', Events.getAll);
 router.get('/test', Events.test);
 
 module.exports = router;
+
