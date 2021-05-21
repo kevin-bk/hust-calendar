@@ -5,16 +5,17 @@ module.exports = {
     Authenticate: function(email, password, callback) {
         Users.findOne({ email: email, password: password })
             .then(user => {
-                callback(true);
+                callback(user._id);
             })
+            .catch(err => callback(false));
     },
 
-    getAllUsers: function(callback) {
+    getAll: function(callback) {
         Users.find({})
             .then(data => callback(data));
     },
 
-    getUserById: function(id, callback) {
+    getById: function(id, callback) {
         Users.find({_id : id})
             .then(data => callback(data));
     },
@@ -22,10 +23,11 @@ module.exports = {
     createUser: function(user, callback) {
         User = new Users(user);
         User.save()
-            .then(() => callback());
+            .then(user => callback(user._id))
+            .catch(err => console.log(err));
     },
 
-    updateUser: function(userID, data, callback) {
+    update: function(userID, data, callback) {
         Users.updateOne({ _id: userID }, data)
             .then(() => callback());
     }

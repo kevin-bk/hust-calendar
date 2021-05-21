@@ -4,11 +4,11 @@ class UserApi {
 
     // Get all users
     getAllUsers(req, res, next) {
-        Users.getAllUsers(function(data) {
+        Users.getAll(function(data) {
             res.json(data);
         })
     }
-    
+
 }
 
 module.exports = new UserApi;

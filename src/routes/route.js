@@ -7,7 +7,7 @@ const requireLogin = require('../middlewares/requireLogin');
 function route(app){
     app.use('/api', apiRouter);
     app.use('/login', loginRouter);
-    app.use('/app', mainRouter);
+    app.use('/app', requireLogin, mainRouter);
     app.use('/', homeRouter);
     app.use('*', function(req, res, next) {
         res.render('page/notFound', {

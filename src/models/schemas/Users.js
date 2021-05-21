@@ -8,13 +8,10 @@ const User = new Schema({
         type: String
     },
     email: {
-        type: String,
-        unique: true,
-        required: true
+        type: String
     },
     password: {
-        type: String,
-        required: true
+        type: String
     },
     followUsers: [{type: String}],
     followEvents: [{type: String}],

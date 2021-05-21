@@ -2,7 +2,10 @@ const EventModel = require('../models/Events');
 
 class EventApi {
     create(req, res,next) {
-        EventModel.createEvent(req.body, function(success) {
+        var event = req.body;
+        event.owner = req.session.userId;
+        console.log(event);
+        EventModel.createEvent(event, function(success) {
             if (success) res.json({ message: 'success'});
             else res.json({ message: 'fail'});
         })
@@ -28,11 +31,12 @@ class EventApi {
     }
 
     test(req, res, next) {
-        var date = new Date(2021, 4, 19);
-        console.log(date);
-        EventModel.getEventAtDate( 0, date, function(data) {
-            res.json(data);
-        })
+        res.json(req.session.userId);
+        // var date = new Date(2021, 4, 19);
+        // console.log(date);
+        // EventModel.getEventAtDate( 0, date, function(data) {
+        //     res.json(data);
+        // })
     }
 }
 
