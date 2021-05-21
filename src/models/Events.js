@@ -6,8 +6,8 @@ module.exports = {
             .then(data => callback(data));
     },
 
-    getEventsOfUser: function(userID, callback) {
-        EventModel.find({ owner: userID, public: true })
+    getAllEventsOfUser: function(userID, callback) {
+        EventModel.find({ owner: userID })
             .then(data => callback(data));
     },
 

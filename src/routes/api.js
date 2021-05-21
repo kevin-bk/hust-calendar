@@ -5,6 +5,7 @@ const Users = require('../api/user');
 const Events = require('../api/event');
 
 router.get('/getAllUsers', Users.getAllUsers);
+router.get('/user/get-self-info', Users.getSelfInfo);
 
 router.post('/event/create', Events.create);
 router.post('/event/follow', Events.follow);

@@ -2,39 +2,36 @@
 
 <!-- Profile -->
 <div class="modal-content position-modal-profile" id="modal-profile" style="display: none;">
-    <input id="slider" class="customSlider" type="checkbox">
-    <label for="slider"></label>
-
-    <div class="wrapper">
+    <div class="wrapper" id="profile">
         <div class="top-icons">
             <i class="fas fa-window-close" onclick="close_profile()"></i>
         </div>
 
         <div class="profile">
-            <img src="/img/icon/avatar-default.png" class="thumbnail">
+            <img id="avatar" src="" class="thumbnail" onerror='this.src="/img/icon/avatar-default.png"'>
             <div class="check"><i class="fas fa-check"></i></div>
-            <h3 class="name">Đỗ Văn Tú</h3>
-            <p class="title">dovantu29012000@gmail.com</p>
+            <h3 id="self-name" class="name">Jerry Mouse</h3>
+            <p id="self-email" class="title">Email</p>
             <button type="button" class="btn">Edit Your Profile</button>
         </div>
 
         <div class="social-icons">
             <div class="icon">
-                <a href="/"><i class="far fa-calendar-alt"></i></a>
-                <h4>10k</h4>
+                <a><i class="far fa-calendar-alt"></i></a>
+                <h4 id="self-event">0</h4>
                 <p> Events created</p>
             </div>
 
             <div class="icon">
-                <a href="/"><i class="fas fa-calendar-check"></i></a>
-                <h4>12k</h4>
+                <a><i class="fas fa-calendar-check"></i></a>
+                <h4 id="self-follow">0</h4>
                 <p> Followed Events</p>
             </div>
 
             <div class="icon">
-                <a href="/"><i class="fas fa-user-check"></i></a>
-                <h4>12.8k</h4>
-                <p>Followers</p>
+                <a><i class="fas fa-user-check"></i></a>
+                <h4 id="self-following">0</h4>
+                <p>Following</p>
             </div>
         </div>
     </div>
