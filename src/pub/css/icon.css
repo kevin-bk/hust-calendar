@@ -36,6 +36,18 @@
     background-image: url('/img/icon/icon_agenda.png');
     background-position: 29px -58px;
 }
+.icon-follow{
+    height: 30px;
+    width: 30px;
+    background-image: url('/img/icon/icon_agenda.png');
+    background-position: 0 -115px;
+}
+.icon-users {
+    height: 30px;
+    width: 30px;
+    color: #fff;
+    font-size: 26px;
+}
 /* icon phan toolbar=========================================== */
 .icon-arrow-left{
     height: 20px;

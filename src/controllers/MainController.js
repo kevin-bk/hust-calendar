@@ -17,6 +17,15 @@ class MainController {
     app(req, res, next) {
         res.render('page/app');
     }
+
+    // [GET] /app/followed/events
+    followedEvents(req, res) {
+        res.render('page/followed-events');
+    }
+
+    followedUsers(req, res) {
+        res.render('page/followed-users');
+    }
 }
 
 module.exports = new MainController;

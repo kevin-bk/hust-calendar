@@ -89,7 +89,7 @@ ADD_EVENT_BUTTON.onclick = function() {
                 location: document.getElementById('location').value,
                 private: document.getElementById('public').checked
             }
-            fetch('/api/create-event', {
+            fetch('/api/event/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

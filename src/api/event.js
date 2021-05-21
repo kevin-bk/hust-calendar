@@ -39,6 +39,27 @@ class EventApi {
         })
     }
 
+    follow(req, res) {
+        EventModel.addFollower(req.body.eventId, req.session.userId, function() {
+            res.json(true);
+        })
+    }
+
+    getFollowed(req, res) {
+        EventModel.getFollowed(req.session.userId, function(events) {
+            if (events) {
+                res.json(events);
+            }
+            else res.json(false);
+        })
+    }
+
+    unFollow(req, res) {
+        EventModel.unFollow(req.body.eventId, req.session.userId, function() {
+            res.json(true);
+        })
+    }
+
     test(req, res, next) {
         res.json(req.session.userId);
         // var date = new Date(2021, 4, 19);

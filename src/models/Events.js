@@ -62,7 +62,13 @@ module.exports = {
     },
 
     getAll: function(userID, callback) {
-        EventModel.find({ owner: {$ne: userID}})
+        EventModel.find({ owner: {$ne: userID}, followers: {$ne: userID}})
+            .then(events => callback(events))
+            .catch(() => callback(false));
+    },
+
+    getFollowed: function(userID, callback) {
+        EventModel.find({ owner: {$ne: userID}, followers: userID})
             .then(events => callback(events))
             .catch(() => callback(false));
     }
