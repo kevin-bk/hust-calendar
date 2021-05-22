@@ -1,4 +1,4 @@
-const Users = require('../models/Users');
+const UserModel = require('../models/Users');
 
 class MainController {
 
@@ -14,7 +14,7 @@ class MainController {
             layout: 'blank'
         });
     }
-    
+
     // [GET] /app/planner
     events(req, res, next) {
         res.render('page/events');
@@ -31,6 +31,19 @@ class MainController {
 
     followedUsers(req, res) {
         res.render('page/followed-users');
+    }
+
+    updateAccount(req, res) {
+        UserModel.update(req.session.userId, req.body, function(success) {
+            // console.log(req.body);/
+            res.redirect('/account')
+        })
+    }
+
+    test(req, res) {
+        res.render('page/test', {
+            layout: 'blank'
+        })
     }
 }
 

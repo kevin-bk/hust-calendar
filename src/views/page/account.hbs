@@ -8,7 +8,8 @@
         <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
             <div class="container-fluid">
                 <!-- Brand -->
-                <a style="margin-bottom: 0;" class="h4 text-white text-uppercase d-none d-lg-inline-block" href="#">User profile</a>
+                <a style="margin-bottom: 0;" class="h4 text-white text-uppercase d-none d-lg-inline-block" href="#">User
+                    profile</a>
                 <!-- Form -->
                 <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
                     <div class="form-group" style="margin-bottom: 0;">
@@ -30,7 +31,8 @@
                                     <img alt="Image placeholder" src="/img/icon/avatar-default.png">
                                 </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
-                                    <span style="margin-bottom: 0;" class=" text-sm  font-weight-bold">Jessica Jones</span>
+                                    <span style="margin-bottom: 0;" class=" text-sm  font-weight-bold">Jessica
+                                        Jones</span>
                                 </div>
                             </div>
                         </a>
@@ -122,78 +124,82 @@
                                 <div class="col-8">
                                     <h3 style="margin-bottom: 0;">My account</h3>
                                 </div>
-                                <div class="col-4 text-right">
-                                    <a href="#!" class="btn btn-sm btn-primary">Settings</a>
-                                </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="/account/update" method="POST" enctype="multipart/form-data">
                                 <h6 class="heading-small text-muted mb-4">User information</h6>
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-username">Full name</label>
-                                                <input type="text" id="input-username"
-                                                    class="form-control form-control-alternative" placeholder="Username"
-                                                    value="lucky.jesse">
+                                                <label class="form-control-label" for="self-name">Full name</label>
+                                                <input name="name" type="text" id="self-name"
+                                                    class="form-control form-control-alternative"
+                                                    value="">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-email">Email
+                                                <label class="form-control-label" for="self-email">Email
                                                     address</label>
-                                                <input type="email" id="input-email"
-                                                    class="form-control form-control-alternative" placeholder="jesse@example.com">
+                                                <input type="email" id="self-email"
+                                                    class="form-control form-control-alternative"
+                                                    value="" disabled>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-username">Job</label>
-                                                <input type="text" id="input-username"
-                                                    class="form-control form-control-alternative" placeholder="Username"
-                                                    value="student">
+                                                <label class="form-control-label" for="self-job">Job</label>
+                                                <input name="job" type="text" id="self-job"
+                                                    class="form-control form-control-alternative"
+                                                    value="">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-email">Company</label>
-                                                <input type="email" id="input-email"
-                                                    class="form-control form-control-alternative" placeholder="Hanoi University of science and techonogy">
+                                                <label class="form-control-label" for="self-company">Company</label>
+                                                <input name="company" type="text" id="self-company"
+                                                    class="form-control form-control-alternative"
+                                                    value="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-username">City</label>
-                                                <input type="text" id="input-username"
-                                                    class="form-control form-control-alternative" placeholder="Username"
-                                                    value="Ha Nội">
+                                                <label class="form-control-label" for="self-city">City</label>
+                                                <input name="city" type="text" id="self-city"
+                                                    class="form-control form-control-alternative"
+                                                    value="">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-email">Country</label>
-                                                <input type="email" id="input-email"
-                                                    class="form-control form-control-alternative" placeholder="Việt Nam">
+                                                <label class="form-control-label" for="self-country">Country</label>
+                                                <input name="country" type="text" id="self-country"
+                                                    class="form-control form-control-alternative"
+                                                    value="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-first-name">Tell something about your self</label>
-                                                <input type="text" id="input-first-name"
+                                                <label class="form-control-label" for="self-description">Tell something
+                                                    about your self</label>
+                                                <input name="description" type="text" id="self-description"
                                                     class="form-control form-control-alternative"
-                                                    placeholder="First name" value="Lucky">
+                                                    value="">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <label for="file">Avatar: </label>
+                                <input id="file" type="file" name="avatar" />
+                                <button class="btn mt-4">Update</button>
                             </form>
                         </div>
                     </div>
@@ -202,3 +208,5 @@
         </div>
     </div>
 </body>
+
+<script src="/js/account.js"></script>

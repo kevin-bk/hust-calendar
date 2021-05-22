@@ -8,7 +8,7 @@ function renderInfo() {
             document.getElementById('self-event').innerHTML = info[2];
             document.getElementById('self-follow').innerHTML = info[0].followEvents.length;
             document.getElementById('self-following').innerHTML = info[0].followUsers.length;
-            document.getElementById('avatar').src = info[0].avatar;
+            document.getElementById('avatar').src = info[0].image;
         });
 
 }

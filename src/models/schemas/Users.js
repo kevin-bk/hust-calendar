@@ -15,7 +15,12 @@ const User = new Schema({
     },
     followUsers: [{type: String}],
     followEvents: [{type: String}],
-    image: { type: String }
+    image: { type: String },
+    job: {type:  String},
+    company: {type: String},
+    city: {type: String},
+    country: {type: String},
+    description: {type: String}
 });
 
 // add plugin

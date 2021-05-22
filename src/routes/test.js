@@ -1,9 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
-const mainController = require('../controllers/MainController');
-const fileUpload = require('../middlewares/fileUpload');
-
 var multer = require('multer');
 // var upload = multer({ dest: 'uploads/' });
 
@@ -19,11 +15,14 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage }).single('avatar');
 
-router.get('/account',mainController.account);
+const testController = require('../controllers/TestController');
+
 router.post('/store', function (req, res, next) {
     upload(req, res, function (err) {
         if (err instanceof multer.MulterError) {
+           console.log('empty');
         } else if (err) {
+            console.log('empty2');
         }
         if (req.file){
             req.body.image = '/img/' + req.file.filename;
@@ -32,8 +31,7 @@ router.post('/store', function (req, res, next) {
         console.log(req.body);
         // next();
     })
-}, mainController.updateAccount);
-router.get('/test',mainController.test);
-router.get('/',mainController.index);
+}, testController.upload);
+router.get('/', testController.index);
 
 module.exports = router;
