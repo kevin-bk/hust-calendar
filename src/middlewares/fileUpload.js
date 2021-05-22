@@ -22,9 +22,6 @@ module.exports = function fileUpload(req, res, next) {
         if (req.file) {
             req.body.image = '/img/upload/' + req.file.filename;
         }
-        else {
-            req.body.image = '';
-        }
         next();
     })
 }
