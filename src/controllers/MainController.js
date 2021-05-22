@@ -8,6 +8,12 @@ class MainController {
             layout: 'blank'
         });
     }
+
+    account(req, res) {
+        res.render('page/account', {
+            layout: 'blank'
+        });
+    }
     
     // [GET] /app/planner
     events(req, res, next) {

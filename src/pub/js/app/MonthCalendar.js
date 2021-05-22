@@ -57,7 +57,7 @@ var Calendar = function (model, options, date) {
         this.Prev = new Date(this.Selected.Year - 1, 11, 1)
     }
     // Lấy số ngày của tháng trước
-    this.Prev.Days = new Date(this.Prev.getFullYear(), (this.Prev.getMonth() + 1), 0).getDate();
+    this.Prev.Days = new Date(this.Prev.getFullYear(), (this.Prev.getMonth() - 1), 0).getDate();
 }
 
 /**=======================================================================

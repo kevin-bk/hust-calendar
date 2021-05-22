@@ -16,4 +16,3 @@ router.get('/event/get-followed', Events.getFollowed);
 router.get('/test', Events.test);
 
 module.exports = router;
-
