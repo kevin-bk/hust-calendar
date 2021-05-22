@@ -31,14 +31,10 @@ function GetEvent(date) {
         },
     ];
     var events = [];
-    // console.log(date);
-    // console.log(eventData);
     for (var i = 0; i < eventData.length; i++) {
-        // console.log(eventData[i]);
         if (date == eventData[i].date) {
             events.push(eventData[i]);
         }
     };
-    // console.log(events);
     return events;
 }

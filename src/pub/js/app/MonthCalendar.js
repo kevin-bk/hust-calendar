@@ -339,13 +339,9 @@ function createCalendar(calendar, element, adjuster) {
                     day.appendChild(event);
                 }
             }
-            
+
             days.appendChild(day);
         }
-        // ================ 
-        // console.log(calendar);
-        // console.log(calendar.Prev.Days);
-        // GetEvent(1);
         mainSection.appendChild(days);
     }
     // ==========================================
@@ -362,8 +358,6 @@ function createCalendar(calendar, element, adjuster) {
     }
     AddLabels();
     AddDays();
-    // var events = GetEvent();
-    // console.log(events);
 }
 /**=============================================
  * Khởi tạo calendar

@@ -43,15 +43,22 @@ function updateCalendar(element, cssLink, jsLink) {
     script = document.createElement('script');
     script.setAttribute('type', 'text/javascript');
     script.setAttribute('src', jsLink);
-    script.onload = function(){
-        initCalendar(element, events, settings);
-      };
-    JS_SELECTOR.innerHTML = '';
-    JS_SELECTOR.appendChild(script);
 
     script2 = document.createElement('script');
     script2.setAttribute('type', 'text/javascript');
     script2.setAttribute('src', EVENT_JS);
+
+    script.onload = function(){
+        initCalendar(element, events, settings);
+    };
+    
+    JS_SELECTOR.innerHTML = '';
+    JS_SELECTOR.appendChild(script);
+    JS_SELECTOR.innerHTML = '';
+    JS_SELECTOR.appendChild(script2);
+    
+
+    
     JS_SELECTOR.appendChild(script2);
 }
 
@@ -110,7 +117,3 @@ ADD_EVENT_BUTTON.onclick = function() {
         }
     }
 }
-
-setTimeout(() => {
-    MONTH_BUTTON_SELECTOR.click(); 
-}, 100);
