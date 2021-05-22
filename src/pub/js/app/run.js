@@ -18,6 +18,7 @@ const YEAR_CSS = "/css/theme-calendar/year.css";
 const WEEK_JS = '/js/app/WeekCalendar.js';
 const MONTH_JS = '/js/app/MonthCalendar.js';
 const YEAR_JS = '/js/app/YearCalendar.js';
+const EVENT_JS = '/js/app/GetEvent.js';
 
 var events = [];
 var settings = {};
@@ -47,6 +48,11 @@ function updateCalendar(element, cssLink, jsLink) {
       };
     JS_SELECTOR.innerHTML = '';
     JS_SELECTOR.appendChild(script);
+
+    script2 = document.createElement('script');
+    script2.setAttribute('type', 'text/javascript');
+    script2.setAttribute('src', EVENT_JS);
+    JS_SELECTOR.appendChild(script2);
 }
 
 // init and add event to DOM
@@ -104,3 +110,7 @@ ADD_EVENT_BUTTON.onclick = function() {
         }
     }
 }
+
+setTimeout(() => {
+    MONTH_BUTTON_SELECTOR.click(); 
+}, 100);

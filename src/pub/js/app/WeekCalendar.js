@@ -87,7 +87,7 @@ function createCalendar(calendar, element, adjuster) {
     var labelsList = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     var daysList = [];
     // ============================
-    console.log(calendar);
+    // console.log(calendar);
     // ============================
     var months = ["Jan", "Feb", "March", "April", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var firstDayWeek;
@@ -102,7 +102,7 @@ function createCalendar(calendar, element, adjuster) {
             rwd.className += " cld-rwd cld-nav";
             rwd.addEventListener('click', function () { 
                 calendar.Selected.DayMonth -= 7;
-                console.log(calendar);
+                // console.log(calendar);
                 createCalendar(calendar, element, 0);
             });
             rwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,50 75,0 75,100"></polyline></svg>';
@@ -119,7 +119,7 @@ function createCalendar(calendar, element, adjuster) {
             fwd.className += " cld-fwd cld-nav";
             fwd.addEventListener('click', function () {
                 calendar.Selected.DayMonth += 7;
-                console.log(calendar);
+                // console.log(calendar);
                 createCalendar(calendar, element, 0);
             });
             fwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,0 75,50 0,100"></polyline></svg>';

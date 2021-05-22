@@ -50,20 +50,25 @@ var Calendar = function (model, options, date) {
     // Lấy thứ cuối của tháng
     this.Selected.LastDay = new Date(this.Selected.Year, (this.Selected.Month + 1), 0).getDay();
 
-    // Tháng trước
+    //Tháng sau !!
     this.Prev = new Date(this.Selected.Year, (this.Selected.Month + 1), 1);
+    //Ngày 1 tháng trước 
+    // this.PrevMonth = new Date(this.Selected.Year, (this.Selected.Month - 1), 1);
+
     // Nếu là tháng 1 thì tháng trước = lùi năm 
-    if (this.Selected.Month == 0) {
-        this.Prev = new Date(this.Selected.Year - 1, 11, 1)
-    }
-    // Lấy số ngày của tháng trước
+    // if (this.Selected.Month == 0) {
+    //     //Tháng 12 năm trước ?
+    //     this.Prev = new Date(this.Selected.Year - 1, 11, 1)
+    // }
+
+    // Lấy số ngày của tháng trước - tháng trước trước của tháng sau
     this.Prev.Days = new Date(this.Prev.getFullYear(), (this.Prev.getMonth() - 1), 0).getDate();
 }
 
 /**=======================================================================
  * Khởi tạo giao diện
- * @param {*} calendar 
- * @param {*} element 
+ * @param {*} calendar : Lấy dữ liệu Date
+ * @param {*} element : Element cần gắn giao diện
  * @param {number} adjuster : Chênh lệch (Tháng hiển thị - tháng hiện tại)
  ========================================================================*/
 function createCalendar(calendar, element, adjuster) {
@@ -145,17 +150,46 @@ function createCalendar(calendar, element, adjuster) {
         for (var i = 0; i < (calendar.Selected.FirstDay); i++) {
             var day = document.createElement('li');
             day.className += "cld-day prevMonth";
-            //Disabled Days
-            // var d = i % 7;
-            // for (var q = 0; q < calendar.Options.DisabledDays.length; q++) {
-            //     debugger
-            //     if (d == calendar.Options.DisabledDays[q]) {
-            //         day.className += " disableDay";
-            //     }
-            // }
+            // =====================================================================================
+            var curDay = new Date(calendar.Selected.Year, calendar.Selected.Month - 1, (calendar.Prev.Days - calendar.Selected.FirstDay) + (i + 1));
+            day.id += curDay;
+            // day.id += (i + 1) + " " + (calendar.Selected.Month + 1) + " " + calendar.Selected.Year;
+            // =====================================================================================
 
             var number = DayNumber((calendar.Prev.Days - calendar.Selected.FirstDay) + (i + 1));
             day.appendChild(number);
+            // Lấy events 
+            var events = [];
+            events = GetEvent(curDay);
+            if(events.length != 0){
+                for(var j = 0; j < events.length; j++){
+                    var event = document.createElement('div');
+                    event.className += "event-wrap";
+
+                    var timeEv = document.createElement('div');
+                    timeEv.className += "date-event";
+
+                    var timeStart = document.createElement('div');
+                    timeStart.className += "hour-event";
+                    timeStart.id += "timeStart";
+                    timeStart.innerHTML += events[j].timeStart;
+
+                    var timeEnd = document.createElement('div');
+                    timeEnd.className += "hour-event";
+                    timeEnd.id += "timeEnd";
+                    timeEnd.innerHTML += events[j].timeEnd;
+
+                    var titleEv = document.createElement('div');
+                    titleEv.className += "title-event";
+                    titleEv.innerHTML += events[j].title;
+
+                    timeEv.appendChild(timeStart);
+                    timeEv.appendChild(timeEnd);
+                    event.appendChild(timeEv);
+                    event.appendChild(titleEv);
+                    day.appendChild(event);
+                }
+            }
 
             days.appendChild(day);
         }
@@ -164,14 +198,14 @@ function createCalendar(calendar, element, adjuster) {
         for (var i = 0; i < calendar.Selected.Days; i++) {
             var day = document.createElement('li');
             day.className += "cld-day currMonth";
-            //Disabled Days
-            // var d = (i + calendar.Selected.FirstDay) % 7;
-            // for (var q = 0; q < calendar.Options.DisabledDays.length; q++) {
-            //     if (d == calendar.Options.DisabledDays[q]) {
-            //         day.className += " disableDay";
-            //     }
-            // }
+            // =====================================================================================
+            var curDay = new Date(calendar.Selected.Year, calendar.Selected.Month, i + 1)
+            day.id += curDay;
+            // day.id += (i + 1) + " " + (calendar.Selected.Month + 1) + " " + calendar.Selected.Year;
+            // =====================================================================================
+
             var number = DayNumber(i + 1);
+            // =================================
             // Check Date against Event Dates
             for (var n = 0; n < calendar.Model.length; n++) {
                 var evDate = calendar.Model[n].Date;
@@ -213,11 +247,46 @@ function createCalendar(calendar, element, adjuster) {
                     number.appendChild(title);
                 }
             }
+            // =================================
             day.appendChild(number);
             // If Today..
             if ((i + 1) == calendar.Today.getDate() && calendar.Selected.Month == calendar.Today.Month && calendar.Selected.Year == calendar.Today.Year) {
                 day.className += " today";
             }
+
+            // Lấy events 
+            var events = [];
+            events = GetEvent(curDay);
+            if(events.length != 0){
+                for(var j = 0; j < events.length; j++){
+                    var event = document.createElement('div');
+                    event.className += "event-wrap";
+
+                    var timeEv = document.createElement('div');
+                    timeEv.className += "date-event";
+
+                    var timeStart = document.createElement('div');
+                    timeStart.className += "hour-event";
+                    timeStart.id += "timeStart";
+                    timeStart.innerHTML += events[j].timeStart;
+
+                    var timeEnd = document.createElement('div');
+                    timeEnd.className += "hour-event";
+                    timeEnd.id += "timeEnd";
+                    timeEnd.innerHTML += events[j].timeEnd;
+
+                    var titleEv = document.createElement('div');
+                    titleEv.className += "title-event";
+                    titleEv.innerHTML += events[j].title;
+
+                    timeEv.appendChild(timeStart);
+                    timeEv.appendChild(timeEnd);
+                    event.appendChild(timeEv);
+                    event.appendChild(titleEv);
+                    day.appendChild(event);
+                }
+            }
+
             days.appendChild(day);
         }
         // ====================
@@ -230,20 +299,53 @@ function createCalendar(calendar, element, adjuster) {
         for (var i = 0; i < (extraDays - calendar.Selected.LastDay); i++) {
             var day = document.createElement('li');
             day.className += "cld-day nextMonth";
-            //Disabled Days
-            //   var d = (i + calendar.Selected.LastDay + 1) % 7;
-            //   for (var q = 0; q < calendar.Options.DisabledDays.length; q++) {
-            //     if (d == calendar.Options.DisabledDays[q]) {
-            //       day.className += " disableDay";
-            //     }
-            //   }
+            
+            var curDay = new Date(calendar.Selected.Year, calendar.Selected.Month + 1, i + 1)
+            day.id += curDay;
+            
 
             var number = DayNumber(i + 1);
             day.appendChild(number);
 
+            // Lấy events 
+            var events = [];
+            events = GetEvent(curDay);
+            if(events.length != 0){
+                for(var j = 0; j < events.length; j++){
+                    var event = document.createElement('div');
+                    event.className += "event-wrap";
+
+                    var timeEv = document.createElement('div');
+                    timeEv.className += "date-event";
+
+                    var timeStart = document.createElement('div');
+                    timeStart.className += "hour-event";
+                    timeStart.id += "timeStart";
+                    timeStart.innerHTML += events[j].timeStart;
+
+                    var timeEnd = document.createElement('div');
+                    timeEnd.className += "hour-event";
+                    timeEnd.id += "timeEnd";
+                    timeEnd.innerHTML += events[j].timeEnd;
+
+                    var titleEv = document.createElement('div');
+                    titleEv.className += "title-event";
+                    titleEv.innerHTML += events[j].title;
+
+                    timeEv.appendChild(timeStart);
+                    timeEv.appendChild(timeEnd);
+                    event.appendChild(timeEv);
+                    event.appendChild(titleEv);
+                    day.appendChild(event);
+                }
+            }
+            
             days.appendChild(day);
         }
         // ================ 
+        // console.log(calendar);
+        // console.log(calendar.Prev.Days);
+        // GetEvent(1);
         mainSection.appendChild(days);
     }
     // ==========================================
@@ -260,6 +362,8 @@ function createCalendar(calendar, element, adjuster) {
     }
     AddLabels();
     AddDays();
+    // var events = GetEvent();
+    // console.log(events);
 }
 /**=============================================
  * Khởi tạo calendar
@@ -270,5 +374,5 @@ function createCalendar(calendar, element, adjuster) {
 function initCalendar(el, data, settings) {
     // hàm Calendar không nhập date để hệ thống tự lấy ngày hiện tại
     var obj = new Calendar(data, settings);
-    createCalendar(obj, el);
+    createCalendar(obj, el, 0);
 }
