@@ -29,6 +29,6 @@ module.exports = {
 
     update: function(userID, data, callback) {
         Users.updateOne({ _id: userID }, data)
-            .then(() => callback());
+            .then(() => callback(true));
     }
 }

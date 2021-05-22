@@ -3,9 +3,11 @@ const router = express.Router();
 
 const Users = require('../api/user');
 const Events = require('../api/event');
+const fileUpload = require('../middlewares/fileUpload');
 
 router.get('/getAllUsers', Users.getAllUsers);
 router.get('/user/get-self-info', Users.getSelfInfo);
+router.post('/account/update', fileUpload, Users.updateInfo);
 
 router.post('/event/create', Events.create);
 router.post('/event/follow', Events.follow);

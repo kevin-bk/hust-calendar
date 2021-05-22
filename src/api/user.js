@@ -22,6 +22,16 @@ class UserApi {
         })
     }
 
+    // [POST] /account/update
+    updateInfo(req, res) {
+        UserModel.update(req.session.userId, req.body, function(success) {
+            if (success) {
+                res.json({message: 'success'});
+            }
+            else res.json({message: 'fail'});
+        })
+    }
+
 }
 
 module.exports = new UserApi;
