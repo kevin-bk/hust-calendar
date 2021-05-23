@@ -189,6 +189,15 @@ function createCalendar(calendar, element, adjuster) {
             dayNo.innerHTML = labelsList[i];
             top.appendChild(dayNo);
 
+            // lunar
+            var dayLunar = convertSolar2Lunar(getDayNumber(day[i]), getMonthNumber(day[i]), getYear(day[i]),  7.0);
+            var dayLunarDiv = document.createElement('div');
+            dayLunarDiv.className = 'lunar';
+            dayLunarDiv.innerHTML = dayLunar[2] + '/' + dayLunar[1];
+            days.appendChild(dayLunarDiv);
+            // console.log(getDayNumber(day[i]) + '/' + getMonthNumber(day[i]) - 1 + '/' + getYear(day[i]));
+            // console.log(getDay(dayLunar) + '/' + getMonthNumber(dayLunar));
+
             // Add month
             var month = document.createElement('div');
             month.className += "month";

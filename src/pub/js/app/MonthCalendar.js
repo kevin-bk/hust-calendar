@@ -161,7 +161,6 @@ function createCalendar(calendar, element, adjuster) {
             // Lấy events 
             var events = [];
             events = await GetEvent(curDay);
-            console.log('get eventof ' + curDay);
             if(events.length != 0){
                 for(var j = 0; j < events.length; j++){
                     var event = document.createElement('div');

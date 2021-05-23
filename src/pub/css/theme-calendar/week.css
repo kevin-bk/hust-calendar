@@ -188,3 +188,10 @@
   .create-task-area {
       display: none !important;
   }
+
+  .lunar {
+    position: relative;
+    top: 33px;
+    left: 115px;
+    font-size: 12px;
+  }
