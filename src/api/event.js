@@ -4,7 +4,6 @@ class EventApi {
     create(req, res,next) {
         var event = req.body;
         event.owner = req.session.userId;
-        console.log(event);
         EventModel.createEvent(event, function(success) {
             if (success) res.json({ message: 'success'});
             else res.json({ message: 'fail'});

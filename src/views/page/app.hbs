@@ -1,5 +1,6 @@
 <head>
     <link id="calendar-css" rel="stylesheet" href="">
+    <link rel="stylesheet" href="/css/view-component/loading.css">
 </head>
 <!-- App =============================================================== -->
 <div id="app">
@@ -9,23 +10,34 @@
             <div id="year-view"></div>
             <div id="week-view"></div>
             <div id="month-view"></div>
-            {{!-- <div class="cld-day" style="position: fixed; top: 100px; left: 100px; background: silver; z-index: 100">
-                <p class="cld-number">Test</p>
-                <div class="event-wrap">
-                    <div class="date-event">
-                        <div class="hour-event" id="timeStart">14:00</div>
-                        <div class="hour-event" id="timeEnd">15:00</div>
-                    </div>
-                    <div class="title-event">Đi ngủ nào</div>
-                </div>
-            </div> --}}
+        </div>
+        <div class="loader-wrapper">
+            <span class="loader"><span class="loader-inner"></span></span>
         </div>
     </div>
+
     {{>form-add-event}}
 </div>
-{{!-- <script type="text/javascript" src="/js/app/Calendar.js"></script> --}}
-{{!-- <script type="text/javascript" src="./../../pub/js/app/GetEvent.js"></script> --}}
 <div id="calendar-js">
     <script id="calendar-js" type="text/javascript" src=""></script>
 </div>
 <script type="text/javascript" src="/js/app/run.js"></script>
+<script>
+    function onReady(callback) {
+        var intervalId = window.setInterval(function () {
+            if (document.getElementsByTagName('body')[0] !== undefined) {
+                window.clearInterval(intervalId);
+                callback.call(this);
+            }
+        }, 6000);
+    }
+
+    function setVisible(selector, visible) {
+        document.querySelector(selector).style.display = visible ? 'flex' : 'none';
+    }
+
+    onReady(function () {
+        setVisible('.content', true);
+        setVisible('.loader-wrapper', false);
+    });
+</script>

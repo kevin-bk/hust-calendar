@@ -97,8 +97,8 @@ ADD_EVENT_BUTTON.onclick = function() {
                 name: document.getElementById('name').value,
                 description: document.getElementById('description').value,
                 date: document.getElementById('date').value,
-                timeStart: document.getElementById('timeStart').value,
-                timeEnd: document.getElementById('timeEnd').value,
+                timeStart: document.getElementById('time-Start').value,
+                timeEnd: document.getElementById('time-End').value,
                 location: document.getElementById('location').value,
                 private: document.getElementById('public').checked
             }
