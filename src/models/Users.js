@@ -48,5 +48,11 @@ module.exports = {
         )
         .then(() => callback())
         .catch(() => callback());
+    },
+
+    isFollow: function(selfID, userID, callback) {
+        Users.find({ _id: selfID, followUsers: userID})
+            .then(users => callback(users))
+            .catch(() => callback(false));
     }
 }

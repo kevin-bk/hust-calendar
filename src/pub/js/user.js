@@ -22,3 +22,30 @@ fetch('/api/user/get-user-info/' + c)
         document.getElementById('acc-company').innerHTML = info[0].company;
         document.getElementById('acc-description').innerHTML = info[0].description;
     })
+
+var FollowBtn = document.getElementById('follow-btn');
+function isFollowed() {
+    fetch('/api/user/is-follow/' + c)
+        .then(res => res.json())
+        .then(followed => {
+            console.log(followed)
+            if (followed) {
+                FollowBtn.href = '/api/user/un-follow/' + c;
+                FollowBtn.innerHTML = '<i class="fas fa-user-plus"></i> Un Follow';
+            }
+            else {
+                FollowBtn.href = '/api/user/follow/' + c;
+                FollowBtn.innerHTML = '<i class="fas fa-user-plus"></i> Follow'
+            }
+        })
+}
+
+isFollowed();
+FollowBtn.onclick = function (event) {
+    event.preventDefault();
+    fetch(event.target.href)
+        .then(res => res.json())
+        .then(data => {
+            isFollowed();
+        })
+}

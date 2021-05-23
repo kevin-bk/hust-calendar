@@ -59,6 +59,14 @@ class UserApi {
         })
     }
 
+    isFollow(req, res) {
+        const userId = req.params.id;
+        UserModel.isFollow(req.session.userId, userId, function(result) {
+            if (result.length > 0) res.json(true);
+            else res.json(false);
+        })
+    }
+
 }
 
 module.exports = new UserApi;

@@ -202,6 +202,7 @@ hr {
 .avatar img {
 	width: 100%;
 	border-radius: 50%;
+	height: 100%;
 }
 
 .avatar-sm {
@@ -351,4 +352,13 @@ hr {
 .navbar-search {
   display: flex;
   align-items: baseline;
+}
+a {
+	color: #fff;
+}
+.card-header a {
+	color: #333;
+}
+.card-header a:hover {
+	color: #333;
 }

@@ -10,6 +10,7 @@ router.get('/user/get-self-info', Users.getSelfInfo);
 router.get('/user/get-user-info/:id', Users.getUserInfo);
 router.get('/user/follow/:id', Users.follow);
 router.get('/user/un-follow/:id', Users.unFollow);
+router.get('/user/is-follow/:id', Users.isFollow);
 router.post('/account/update', fileUpload, Users.updateInfo);
 
 router.post('/event/create', Events.create);
