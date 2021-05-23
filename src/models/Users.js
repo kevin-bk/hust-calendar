@@ -54,5 +54,22 @@ module.exports = {
         Users.find({ _id: selfID, followUsers: userID})
             .then(users => callback(users))
             .catch(() => callback(false));
+    },
+
+    delete: function(userId, callback) {
+        Users.delete({ _id: userId})
+            .then(() => callback())
+            .catch(() => callback());
+    },
+
+    getAllWithDelete: function(callback) {
+        Users.findWithDeleted({}) 
+            .then(users => callback(users))
+            .catch(() => callback(false));
+    },
+
+    restore: function(userId, callback) {
+        Users.restore({ _id: userId})
+            .then(() => callback());
     }
 }

@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/admin.css">
+
+<header class="header">
+    <div class="header__grid">
+
+        <nav class="header__navbar" id="navbar">
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item"><a class="header__navbar-item-link link-home" href="/admin/dashboard">Trang Chủ</a>
+                </li>
+            </ul>
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item header__navbar-item-right"><a class="header__navbar-item-link link-login"
+                        href="/admin/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="data">
+    </tbody>
+</table>
+
+<script src="/js/admin.js"></script>

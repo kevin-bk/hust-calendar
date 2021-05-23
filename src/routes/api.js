@@ -6,6 +6,7 @@ const Events = require('../api/event');
 const fileUpload = require('../middlewares/fileUpload');
 
 router.get('/getAllUsers', Users.getAllUsers);
+router.get('/getAllUsersWithDel', Users.getAllWithDel);
 router.get('/user/get-self-info', Users.getSelfInfo);
 router.get('/user/get-user-info/:id', Users.getUserInfo);
 router.get('/user/follow/:id', Users.follow);

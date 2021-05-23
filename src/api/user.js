@@ -67,6 +67,11 @@ class UserApi {
         })
     }
 
+    getAllWithDel(req, res) {
+        UserModel.getAllWithDelete(function(users) {
+            res.json(users);
+        })
+    }
 }
 
 module.exports = new UserApi;
