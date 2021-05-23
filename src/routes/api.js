@@ -22,5 +22,6 @@ router.get('/event/get-followed', Events.getFollowed);
 router.get('/event/get-in-date', Events.getInDate);
 router.get('/event/get-self', Events.getSelf);
 router.post('/event/edit/:id', Events.edit);
+router.get('/event/delete/:id', Events.delete);
 
 module.exports = router;

@@ -93,6 +93,7 @@ ADD_EVENT_BUTTON.onclick = function () {
         event.preventDefault();
         document.getElementById('form-modal').style.display = 'none';
     }
+    document.getElementById('delete-event').style.display = 'none';
 
     document.getElementById('name').value = null;
     document.getElementById('date').value = null;
@@ -176,6 +177,16 @@ function showEditModal(elm) {
     document.getElementById('cancel-add-event').onclick = function (event) {
         event.preventDefault();
         document.getElementById('form-modal').style.display = 'none';
+    }
+    document.getElementById('delete-event').style.display = 'inline-block';
+    document.getElementById('delete-event').onclick = function(event) {
+        event.preventDefault();
+        fetch('/api/event/delete/' + elm.dataset.id)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('form-modal').style.display = 'none';
+                reloadInterface();
+            })
     }
 
     document.getElementById('name').value = elm.dataset.name;

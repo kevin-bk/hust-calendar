@@ -18,7 +18,7 @@ class EventApi {
     }
 
     delete(req, res, next) {
-        EventModel.deleteEvent(req.eventID, function() {
+        EventModel.deleteEvent(req.params.id, function() {
             res.json({ message: 'success'})
         })
     }
