@@ -9,7 +9,7 @@ fetch('/api/getAllUsers')
             '                <div class="check"><i class="fas fa-check"></i></div>'+
             `                <h3 class="name">${user.name}</h3>`+
             `                <p class="title">${user.email}</p>`+
-            '                <a href="/account"><button type="button" class="btn">See More</button></a>'+
+            `                <a href="/app/user?userId=${user._id}"><button type="button" class="btn">See More</button></a>`+
             '            </div>'+
             '        <div class="user-info">'+
             `            <p>Job: ${user.job ? user.job : '---'}</p>`+

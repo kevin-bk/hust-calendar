@@ -40,10 +40,8 @@ class MainController {
         })
     }
 
-    test(req, res) {
-        res.render('page/test', {
-            layout: 'blank'
-        })
+    user(req, res) {
+        res.render('page/user');
     }
 }
 

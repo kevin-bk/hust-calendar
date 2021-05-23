@@ -10,6 +10,7 @@ router.delete('/todo-list/:id', todoController.delete);
 router.get('/events', mainController.events);
 router.get('/followed/events', mainController.followedEvents);
 router.get('/followed/users', mainController.followedUsers);
+router.get('/user', mainController.user);
 router.get('/', mainController.app);
 
 module.exports = router;
