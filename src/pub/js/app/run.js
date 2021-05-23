@@ -9,6 +9,7 @@ const MONTH_BUTTON_SELECTOR = document.getElementById('view-month');
 const YEAR_BUTTON_SELECTOR = document.getElementById('view-year');
 const TODAY_BUTTON_SELECTOR = document.getElementById('view-today');
 const ADD_EVENT_BUTTON = document.getElementById('add-event');
+const REFRESH_BUTTON = document.getElementById('refresh');
 
 // Link css for week, month, year view
 const WEEK_CSS = "/css/theme-calendar/week.css";
@@ -81,6 +82,9 @@ YEAR_BUTTON_SELECTOR.onclick = function () {
 TODAY_BUTTON_SELECTOR.onclick = function () {
     WEEK_BUTTON_SELECTOR.click();
 }
+REFRESH_BUTTON.onclick = function() {
+    reloadInterface();
+}
 
 // Add event button. Display add event form when click, send data and reload page when submit and hide when cancel
 ADD_EVENT_BUTTON.onclick = function () {
@@ -114,6 +118,7 @@ ADD_EVENT_BUTTON.onclick = function () {
                 .then(data => {
                     document.getElementById('form-modal').style.display = 'none';
                     showNotify();
+                    reloadInterface();
                 })
         }
     }
@@ -137,6 +142,11 @@ async function getSelfEvents() {
         event.date = dateToString(e.date);
         return event;
     })
+}
+
+async function reloadInterface() {
+    await getSelfEvents();
+    currentInterface.click();
 }
 
 async function run() {
