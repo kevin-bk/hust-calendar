@@ -164,15 +164,6 @@
 }
 
 .position-modal-profile {
-    /* width: 400px;
-    height: 70%;
-    left: 30%;
-    top: -17px;
-    padding: 0px 25px;
-    animation: animatetop 0.2s;
-    font-size: 13px;
-    font-family: 'Open Sans',sans-serif;;
-    color:rgba(0, 0, 0, 0.705); */
     width: 400px;
     height: 510px;
     left: 37%;
@@ -182,6 +173,7 @@
     font-family: 'Open Sans',sans-serif;
     color: transparent;
     position: absolute;
+    z-index: 99;
 }
 
 .profile {

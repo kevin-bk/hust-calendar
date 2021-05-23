@@ -48,48 +48,46 @@ function updateCalendar(element, cssLink, jsLink) {
     script2.setAttribute('type', 'text/javascript');
     script2.setAttribute('src', EVENT_JS);
 
-    script.onload = function(){
+    script.onload = function () {
         initCalendar(element, events, settings);
     };
-    
+
     JS_SELECTOR.innerHTML = '';
     JS_SELECTOR.appendChild(script);
     JS_SELECTOR.innerHTML = '';
     JS_SELECTOR.appendChild(script2);
-    
 
-    
+
+
     JS_SELECTOR.appendChild(script2);
 }
 
 // init and add event to DOM
-WEEK_BUTTON_SELECTOR.onclick = function() {
+WEEK_BUTTON_SELECTOR.onclick = function () {
     updateCalendar(WEEK_SELECTOR, WEEK_CSS, WEEK_JS);
     WEEK_BUTTON_SELECTOR.classList.add('btn-active');
 }
-MONTH_BUTTON_SELECTOR.onclick = function() {
+MONTH_BUTTON_SELECTOR.onclick = function () {
     updateCalendar(MONTH_SELECTOR, MONTH_CSS, MONTH_JS);
     MONTH_BUTTON_SELECTOR.classList.add('btn-active');
 }
-YEAR_BUTTON_SELECTOR.onclick = function() {
+YEAR_BUTTON_SELECTOR.onclick = function () {
     updateCalendar(YEAR_SELECTOR, YEAR_CSS, YEAR_JS);
     YEAR_BUTTON_SELECTOR.classList.add('btn-active');
 }
-TODAY_BUTTON_SELECTOR.onclick = function() {
+TODAY_BUTTON_SELECTOR.onclick = function () {
     WEEK_BUTTON_SELECTOR.click();
 }
-// Go to today
-TODAY_BUTTON_SELECTOR.click();
 
 // Add event button. Display add event form when click, send data and reload page when submit and hide when cancel
-ADD_EVENT_BUTTON.onclick = function() {
+ADD_EVENT_BUTTON.onclick = function () {
     document.getElementById('form-modal').style.display = 'block';
-    document.getElementById('cancel-add-event').onclick = function(event) {
+    document.getElementById('cancel-add-event').onclick = function (event) {
         event.preventDefault();
         document.getElementById('form-modal').style.display = 'none';
     }
 
-    document.getElementById('submit-add-event').onclick = function(event) {
+    document.getElementById('submit-add-event').onclick = function (event) {
         event.preventDefault();
         if (!validateForm()) return;
         else {
@@ -106,14 +104,41 @@ ADD_EVENT_BUTTON.onclick = function() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                  },
+                },
                 body: JSON.stringify(data)
             })
                 .then(response => response.json())
-                .then( data => {
+                .then(data => {
                     document.getElementById('form-modal').style.display = 'none';
                     showNotify();
                 })
         }
     }
 }
+
+var selfEvents;
+
+async function getSelfEvents() {
+    let res;
+    await fetch('/api/event/get-self')
+        .then(res => res.json())
+        .then(data => {
+            res = data;
+        })
+    selfEvents = res.map(e => {
+        let event = {};
+        event.id = e._id;
+        event.title = e.name;
+        event.timeStart = e.timeStart;
+        event.timeEnd = e.timeEnd;
+        event.date = dateToString(e.date);
+        return event;
+    })
+}
+
+async function run() {
+    await getSelfEvents();
+    WEEK_BUTTON_SELECTOR.click();
+}
+
+run();
