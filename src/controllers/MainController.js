@@ -41,7 +41,9 @@ class MainController {
     }
 
     user(req, res) {
-        res.render('page/user');
+        res.render('page/user', {
+            layout: 'blank'
+        });
     }
 }
 

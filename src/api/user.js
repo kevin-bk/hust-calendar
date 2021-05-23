@@ -32,6 +32,19 @@ class UserApi {
         })
     }
 
+    getUserInfo(req, res) {
+        const userId = req.params.id;
+        UserModel.getById(userId, function(info) {
+            EventModel.getFollowed(userId, function(events) {
+                info.push(events.length);
+                EventModel.getAllEventsOfUser(userId, function(data) {
+                    info.push(data.length);
+                    res.json(info);
+                })
+            })
+        })
+    }
+
 }
 
 module.exports = new UserApi;

@@ -7,6 +7,7 @@ const fileUpload = require('../middlewares/fileUpload');
 
 router.get('/getAllUsers', Users.getAllUsers);
 router.get('/user/get-self-info', Users.getSelfInfo);
+router.get('/user/get-user-info/:id', Users.getUserInfo);
 router.post('/account/update', fileUpload, Users.updateInfo);
 
 router.post('/event/create', Events.create);
