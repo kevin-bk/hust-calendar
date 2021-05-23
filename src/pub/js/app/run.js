@@ -89,6 +89,7 @@ REFRESH_BUTTON.onclick = function() {
 // Add event button. Display add event form when click, send data and reload page when submit and hide when cancel
 ADD_EVENT_BUTTON.onclick = function () {
     document.getElementById('form-modal').style.display = 'block';
+    document.getElementById('submit-add-event').style.display = 'inline-block';
     document.getElementById('cancel-add-event').onclick = function (event) {
         event.preventDefault();
         document.getElementById('form-modal').style.display = 'none';
@@ -155,6 +156,7 @@ async function getSelfEvents() {
         event.description = e.description;
         event.private = e.private;
         event.location = e.location;
+        event.owner = true;
         event.date = dateToString(e.date);
         return event;
     })
@@ -162,11 +164,14 @@ async function getSelfEvents() {
 
 async function reloadInterface() {
     await getSelfEvents();
+    await getFollowedEvents();
     currentInterface.click();
 }
 
 async function run() {
     await getSelfEvents();
+    await getFollowedEvents();
+    console.log(selfEvents)
     WEEK_BUTTON_SELECTOR.click();
 }
 
@@ -178,7 +183,9 @@ function showEditModal(elm) {
         event.preventDefault();
         document.getElementById('form-modal').style.display = 'none';
     }
+    document.getElementById('submit-add-event').style.display = 'inline-block';
     document.getElementById('delete-event').style.display = 'inline-block';
+    document.getElementById('delete-event').innerHTML = 'Delete';
     document.getElementById('delete-event').onclick = function(event) {
         event.preventDefault();
         fetch('/api/event/delete/' + elm.dataset.id)
@@ -187,6 +194,30 @@ function showEditModal(elm) {
                 document.getElementById('form-modal').style.display = 'none';
                 reloadInterface();
             })
+    }
+
+    if (elm.dataset.owner == 'false') {
+        document.getElementById('delete-event').innerHTML = 'Un Follow';
+        document.getElementById('submit-add-event').style.display = 'none';
+        document.getElementById('delete-event').onclick = function(event) {
+            event.preventDefault();
+            const data = {
+                eventId: elm.dataset.id
+            }
+        
+            fetch('/api/event/un-follow', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(res => {
+                    document.getElementById('form-modal').style.display = 'none';
+                    reloadInterface();
+                });
+        }
     }
 
     document.getElementById('name').value = elm.dataset.name;
@@ -228,4 +259,28 @@ function showEditModal(elm) {
                 })
         }
     }
+}
+
+async function getFollowedEvents() {
+    let res;
+    await fetch('/api/event/get-followed')
+        .then(res => res.json())
+        .then(data => {
+            res = data;
+        })
+    res.forEach(e => {
+        let event = {};
+        event.id = e._id;
+        event.title = e.name;
+        event.timeStart = e.timeStart;
+        event.timeEnd = e.timeEnd;
+        event.done = e.done;
+        event.day = e.date;
+        event.description = e.description;
+        event.private = e.private;
+        event.location = e.location;
+        event.owner = false;
+        event.date = dateToString(e.date);
+        selfEvents.push(event);
+    })
 }

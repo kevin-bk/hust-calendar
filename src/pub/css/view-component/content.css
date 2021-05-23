@@ -57,6 +57,10 @@
     height: 50%;
 }
 
+.title-event-other {
+    background-color: #ffc107 !important;
+}
+
 .title-event-done {
     background-color: rgba(67, 172, 106, 0.9) !important;
 }
