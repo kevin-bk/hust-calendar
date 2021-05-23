@@ -11,9 +11,9 @@ class EventApi {
     }
 
     edit(req, res, next) {
-        EventModel.updateEvent(req.eventID, req.body, function(success) {
-            if (success) res.json({ message: 'success'});
-            else res.json({ message: 'fail'});
+        EventModel.updateEvent(req.params.id, req.body, function(success) {
+            if (success) res.json(true);
+            else res.json(false);
         })
     }
 

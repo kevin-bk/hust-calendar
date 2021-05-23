@@ -141,6 +141,10 @@ async function getSelfEvents() {
         event.timeStart = e.timeStart;
         event.timeEnd = e.timeEnd;
         event.done = e.done;
+        event.day = e.date;
+        event.description = e.description;
+        event.private = e.private;
+        event.location = e.location;
         event.date = dateToString(e.date);
         return event;
     })
@@ -157,3 +161,51 @@ async function run() {
 }
 
 run();
+
+function showEditModal(elm) {
+    document.getElementById('form-modal').style.display = 'block';
+    document.getElementById('cancel-add-event').onclick = function (event) {
+        event.preventDefault();
+        document.getElementById('form-modal').style.display = 'none';
+    }
+
+    document.getElementById('name').value = elm.dataset.name;
+    var d = new Date(elm.dataset.date);
+    document.getElementById('date').value = d.toISOString().substring(0,10);;
+    document.getElementById('description').value = elm.dataset.description;
+    document.getElementById('time-Start').value = elm.dataset.timestart;
+    document.getElementById('time-End').value = elm.dataset.timeend;
+    document.getElementById('location').value = elm.dataset.location;
+    document.getElementById('public').checked = elm.dataset.public == 'true' ? true : false;
+    document.getElementById('done').checked = elm.dataset.done == 'true' ? true : false;
+
+    document.getElementById('submit-add-event').onclick = function (event) {
+        event.preventDefault();
+        if (!validateForm()) return;
+        else {
+            const data = {
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                date: document.getElementById('date').value,
+                timeStart: document.getElementById('time-Start').value,
+                timeEnd: document.getElementById('time-End').value,
+                location: document.getElementById('location').value,
+                private: document.getElementById('public').checked,
+                done: document.getElementById('done').checked
+            }
+            fetch('/api/event/edit/' + elm.dataset.id, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('form-modal').style.display = 'none';
+                    showNotify();
+                    reloadInterface();
+                })
+        }
+    }
+}

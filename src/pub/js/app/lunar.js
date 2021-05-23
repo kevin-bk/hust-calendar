@@ -184,4 +184,4 @@ function convertLunar2Solar(lunarDay, lunarMonth, lunarYear, lunarLeap, timeZone
     return jdToDate(monthStart+lunarDay-1);
 }
 
-console.log(convertSolar2Lunar(23, 5, 2021,  7.0));
+// console.log(convertSolar2Lunar(23, 5, 2021,  7.0));
