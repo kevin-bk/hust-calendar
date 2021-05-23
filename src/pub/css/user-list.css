@@ -1,6 +1,6 @@
 .content {
   top: 100px;
-  background-image: url('/img/bg.jpg');
+  /* background-image: url('/img/bg.jpg'); */
   background-size: cover;
 }
 .row {
