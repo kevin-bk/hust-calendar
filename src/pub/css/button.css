@@ -128,3 +128,12 @@
 	white-space: nowrap;
 }
 /* ===================== */
+
+.btn-convert {
+    position: relative;
+    top: 36px;
+    font-size: 28px;
+    left: 110px;
+    opacity: .9;
+    cursor: pointer;
+}

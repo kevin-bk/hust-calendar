@@ -25,11 +25,42 @@
         <div class="btn-refresh" id="refresh-btn">
             <div class="icon-refresh"></div>
         </div>
+        <div class="btn">
+            <a href="#modal-opened">
+                <i class="far fa-calendar-alt btn-convert"></i>
+            </a>
+        </div>
     </div>
     <!-- User info area========================================================== -->
     <div class="user-tag">
-        <img id="mini-avatar" class="avatar" onclick="open_profile()" onerror='this.src="/img/icon/avatar-default.png"'></img>
+        <img id="mini-avatar" class="avatar" onclick="open_profile()"
+            onerror='this.src="/img/icon/avatar-default.png"'></img>
         <div id="user-name" class="username"></div>
         <div class="more"></div>
     </div>
 </div>
+
+<!-- Modal convert -->
+<div class="modal-container" id="modal-opened">
+    <div class="modal">
+        <div class="modal__details">
+            <h1 class="modal__title">Convert Solar day to Lunar day</h1>
+            <p class="modal__description">Enter Solar Day</p>
+            <input type="date" id="solar2lunar-btn">
+            <button class="modal__btn" onclick="solar2Lunar()">Convert</button>
+            <div class="solar2lunar" id="solar2lunar"></div>
+        </div>
+        <div class="detail2">
+            <h1 class="modal__title">Convert Lunar day to Solar day</h1>
+            <p class="modal__description">Enter Lunar Day</p>
+            <input type="date" id="lunar2solar-btn">
+            <button class="modal__btn" onclick="lunar2solar()">Convert</button>
+            <div class="solar2lunar" id="lunar2solar"></div>
+        </div>
+        <a href="#modal-closed" class="link-2"></a>
+
+    </div>
+</div>
+
+<link rel="stylesheet" href="/css/view-component/convert-modal.css">
+<script src="/js/convert.js"></script>
