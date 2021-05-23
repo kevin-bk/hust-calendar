@@ -30,5 +30,23 @@ module.exports = {
     update: function(userID, data, callback) {
         Users.updateOne({ _id: userID }, data)
             .then(() => callback(true));
+    },
+
+    follow: function(selfID, userID, callback) {
+        Users.updateOne(
+            { _id: selfID, followUsers: {$ne: userID}},
+            { $push: {followUsers: userID} }
+        )
+        .then(() => callback())
+        .catch(() => callback());
+    },
+
+    unFollow: function(selfID, userID, callback) {
+        Users.updateOne(
+            { _id: selfID},
+            { $pull: {followUsers: userID} }
+        )
+        .then(() => callback())
+        .catch(() => callback());
     }
 }

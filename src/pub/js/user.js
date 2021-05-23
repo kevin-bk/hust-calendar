@@ -1,7 +1,7 @@
 var c = new URL(window.location.href).searchParams.get("userId");
 console.log(c);
 
-fetch('/api/user/get-user-info/4')
+fetch('/api/user/get-user-info/' + c)
     .then(res => res.json())
     .then(info => {
         document.getElementById('self-name').value = info[0].name;

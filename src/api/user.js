@@ -45,6 +45,20 @@ class UserApi {
         })
     }
 
+    follow(req, res) {
+        const userId = req.params.id;
+        UserModel.follow(req.session.userId, userId, function() {
+            res.json(true);
+        })
+    }
+
+    unFollow(req, res) {
+        const userId = req.params.id;
+        UserModel.unFollow(req.session.userId, userId, function() {
+            res.json(true);
+        })
+    }
+
 }
 
 module.exports = new UserApi;
