@@ -7,7 +7,7 @@ function GetEvent(date) {
     var eventData = selfEvents.filter(e => {
         if (e.date == dateToString(date)) return e;
     })
-    return eventData;
+    return eventData.sort( compare );
 }
 
 /**=================================================================

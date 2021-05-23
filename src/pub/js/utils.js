@@ -25,3 +25,13 @@ function getYear(d) {
 function count(arr) {
     return arr.length;
 }
+
+function compare( a, b ) {
+    if ( a.timeStart < b.timeStart ){
+      return -1;
+    }
+    if ( a.timeStart > b.timeStart ){
+      return 1;
+    }
+    return 0;
+  }

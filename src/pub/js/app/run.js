@@ -34,7 +34,7 @@ function clearCalendar() {
 }
 
 // Update lại data trong calendar
-var weekCache = false;
+var currentInterface = WEEK_BUTTON_SELECTOR;
 function updateCalendar(element, cssLink, jsLink) {
     clearCalendar();
     // change css style
@@ -66,14 +66,17 @@ function updateCalendar(element, cssLink, jsLink) {
 WEEK_BUTTON_SELECTOR.onclick = function () {
     updateCalendar(WEEK_SELECTOR, WEEK_CSS, WEEK_JS);
     WEEK_BUTTON_SELECTOR.classList.add('btn-active');
+    currentInterface = WEEK_BUTTON_SELECTOR;
 }
 MONTH_BUTTON_SELECTOR.onclick = function () {
     updateCalendar(MONTH_SELECTOR, MONTH_CSS, MONTH_JS);
     MONTH_BUTTON_SELECTOR.classList.add('btn-active');
+    currentInterface = MONTH_BUTTON_SELECTOR;
 }
 YEAR_BUTTON_SELECTOR.onclick = function () {
     updateCalendar(YEAR_SELECTOR, YEAR_CSS, YEAR_JS);
     YEAR_BUTTON_SELECTOR.classList.add('btn-active');
+    currentInterface = YEAR_BUTTON_SELECTOR;
 }
 TODAY_BUTTON_SELECTOR.onclick = function () {
     WEEK_BUTTON_SELECTOR.click();
