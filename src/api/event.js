@@ -69,6 +69,15 @@ class EventApi {
             else res.json({});
         })
     }
+
+    getSelf(req, res) {
+        EventModel.getSelf(req.session.userId, function(events) {
+            if (events) {
+                res.json(events);
+            }
+            else res.json({});
+        })
+    }
 }
 
 module.exports = new EventApi;

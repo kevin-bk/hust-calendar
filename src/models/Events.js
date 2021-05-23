@@ -91,5 +91,11 @@ module.exports = {
             })
             .then(events => callback(events))
             .catch(() => callback(false));
+    },
+
+    getSelf: function(userID, callback) {
+        EventModel.find({owner: userID})
+            .then(events => callback(events))
+            .catch(() => callback(false));
     }
 }
