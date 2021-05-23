@@ -34,9 +34,8 @@
 .event-wrap .title-event{
     height: 100%;
     width: 75%;
-    /* background-color: yellow; */
-
-    font-size: 14px;
+    background-color: rgb(201, 218, 248);
+    font-size: 11px;
     padding-left: 8px;
     line-height: 100%;
     display: inline-block;

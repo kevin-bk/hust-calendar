@@ -25,7 +25,7 @@ function validateForm() {
     }
     document.getElementById("vld-date").innerHTML = dateText;
     // Get the value of the input field with id="date" and validate
-    start = document.getElementById("timeStart").value;
+    start = document.getElementById("time-Start").value;
     if (!isNaN(start)) {
         startText = "Time start can not be empty";
         document.getElementById("vld-time-start").innerHTML = startText;
@@ -35,7 +35,7 @@ function validateForm() {
     }
     document.getElementById("vld-time-start").innerHTML = startText;
     // Get the value of the input field with id="date" and validate
-    end = document.getElementById("timeEnd").value;
+    end = document.getElementById("time-End").value;
     if (!isNaN(end)) {
         endText = "Time end can not be empty";
         document.getElementById("vld-time-end").innerHTML = endText;
