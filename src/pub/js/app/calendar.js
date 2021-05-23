@@ -48,7 +48,7 @@
     this.Selected.DayWeek = this.Selected.getDay();
     this.Selected.DayMonth = this.Selected.getDate();
 
-    // Lấy số ngày trong tháng
+    // Lấy số ngày trong tháng - ngày cuối của tháng trước đối với tháng sau
     this.Selected.Days = new Date(this.Selected.Year, (this.Selected.Month + 1), 0).getDate();
     // Lấy thứ đầu của tháng
     this.Selected.FirstDay = new Date(this.Selected.Year, (this.Selected.Month), 1).getDay();

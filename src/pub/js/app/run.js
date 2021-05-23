@@ -18,6 +18,7 @@ const YEAR_CSS = "/css/theme-calendar/year.css";
 const WEEK_JS = '/js/app/WeekCalendar.js';
 const MONTH_JS = '/js/app/MonthCalendar.js';
 const YEAR_JS = '/js/app/YearCalendar.js';
+const EVENT_JS = '/js/app/GetEvent.js';
 
 var events = [];
 var settings = {};
@@ -42,11 +43,23 @@ function updateCalendar(element, cssLink, jsLink) {
     script = document.createElement('script');
     script.setAttribute('type', 'text/javascript');
     script.setAttribute('src', jsLink);
+
+    script2 = document.createElement('script');
+    script2.setAttribute('type', 'text/javascript');
+    script2.setAttribute('src', EVENT_JS);
+
     script.onload = function(){
         initCalendar(element, events, settings);
-      };
+    };
+    
     JS_SELECTOR.innerHTML = '';
     JS_SELECTOR.appendChild(script);
+    JS_SELECTOR.innerHTML = '';
+    JS_SELECTOR.appendChild(script2);
+    
+
+    
+    JS_SELECTOR.appendChild(script2);
 }
 
 // init and add event to DOM

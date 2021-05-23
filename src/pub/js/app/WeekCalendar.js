@@ -1,10 +1,52 @@
+/**====================================================
+ * Load sự kiện trong ngày 
+ * @param {*} date : Ngày cần load sự kiện
+ * @returns events : Danh sách event có trong ngày Date
+ ======================================================*/
+function GetEvent(date) {
+    var eventData = [
+        {
+            title: "ev1",
+            date: "Sun May 23 2021 00:00:00 GMT+0700 (Giờ Đông Dương)",
+            timeStart: "03:38",
+            timeEnd: "04:38",
+        },
+        {
+            title: "ev2",
+            date: "Sat May 01 2021 00:00:00 GMT+0700 (Giờ Đông Dương)",
+            timeStart: "03:38",
+            timeEnd: "04:38",
+        },
+        {
+            title: "ev3",
+            date: "Mon Apr 26 2021 00:00:00 GMT+0700 (Giờ Đông Dương)",
+            timeStart: "03:38",
+            timeEnd: "04:38",
+        },
+        {
+            title: "ev4",
+            date: "Sun Apr 25 2021 00:00:00 GMT+0700 (Giờ Đông Dương)",
+            timeStart: "03:38",
+            timeEnd: "04:38",
+        },
+    ];
+    var events = [];
+    for (var i = 0; i < eventData.length; i++) {
+        if (date == eventData[i].date) {
+            events.push(eventData[i]);
+        }
+    };
+    return events;
+}
+
+
 /**=================================================================
  * Khởi tạo dữ liệu, lấy data ngày tháng năm
  * @param {*} model : ????
  * @param {cài đặt} options : Các giá trị cài đặt cho dữ liệu
  * @param {today} date : nhập vào giá trị date muốn hiện lịch
  ==================================================================*/
- var Calendar = function (model, options, date) {
+var Calendar = function (model, options, date) {
     // Khai báo các giá trị mặc định 
     this.Options = {
         // Màu chữ
@@ -87,11 +129,11 @@ function createCalendar(calendar, element, adjuster) {
     var labelsList = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     var daysList = [];
     // ============================
-    console.log(calendar);
+    // console.log(calendar);
     // ============================
     var months = ["Jan", "Feb", "March", "April", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var firstDayWeek;
-    var day = [ firstDayWeek, , , , , , lastDayweek];
+    var day = [firstDayWeek, , , , , , lastDayweek];
     var lastDayweek;
 
     function AddDateTime() {
@@ -100,9 +142,9 @@ function createCalendar(calendar, element, adjuster) {
         if (calendar.Options.NavShow && !calendar.Options.NavVertical) {
             var rwd = document.createElement('div');
             rwd.className += " cld-rwd cld-nav";
-            rwd.addEventListener('click', function () { 
+            rwd.addEventListener('click', function () {
                 calendar.Selected.DayMonth -= 7;
-                console.log(calendar);
+                // console.log(calendar);
                 createCalendar(calendar, element, 0);
             });
             rwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,50 75,0 75,100"></polyline></svg>';
@@ -110,7 +152,7 @@ function createCalendar(calendar, element, adjuster) {
         }
         var today = document.createElement('div');
         today.className += ' today';
-        
+
         GetWeek(calendar.Selected);
         today.innerHTML = firstDayWeek.getDate() + " " + months[firstDayWeek.getMonth()] + " - " + lastDayWeek.getDate() + " " + months[lastDayWeek.getMonth()] + " " + calendar.Selected.Year;
         datetime.appendChild(today);
@@ -119,7 +161,7 @@ function createCalendar(calendar, element, adjuster) {
             fwd.className += " cld-fwd cld-nav";
             fwd.addEventListener('click', function () {
                 calendar.Selected.DayMonth += 7;
-                console.log(calendar);
+                // console.log(calendar);
                 createCalendar(calendar, element, 0);
             });
             fwd.innerHTML = '<svg height="15" width="15" viewBox="0 0 75 100" fill="rgba(0,0,0,0.5)"><polyline points="0,0 75,50 0,100"></polyline></svg>';
@@ -129,7 +171,7 @@ function createCalendar(calendar, element, adjuster) {
         document.getElementById('datetime').appendChild(datetime);
     }
 
-    function GetWeek(SelectedDay){
+    function GetWeek(SelectedDay) {
         firstDayWeek = new Date(SelectedDay.Year, SelectedDay.Month, SelectedDay.DayMonth - SelectedDay.DayWeek + 1);
         day[2] = new Date(SelectedDay.Year, SelectedDay.Month, SelectedDay.DayMonth - SelectedDay.DayWeek + 2);
         day[3] = new Date(SelectedDay.Year, SelectedDay.Month, SelectedDay.DayMonth - SelectedDay.DayWeek + 3);
@@ -140,13 +182,6 @@ function createCalendar(calendar, element, adjuster) {
     }
 
     function AddWeek() {
-        // for (var i = calendar.Selected.DayMonth - calendar.Selected.DayWeek + 1; i <= calendar.Selected.DayMonth + 7 - calendar.Selected.DayWeek; i++) {
-        //     daysList.push(i);
-        // }
-        for(var i = 0; i < 7; i++){
-            day[i] = new Date(calendar.Selected.Year, calendar.Selected.Month, calendar.Selected.DayMonth - calendar.Selected.DayWeek + 1 + i);
-        }
-
         var rowDay = document.createElement('div');
         rowDay.className += "row-day-info";
 
@@ -156,8 +191,10 @@ function createCalendar(calendar, element, adjuster) {
         var rowEvent = document.createElement('div');
         rowEvent.className += "row-events";
 
-        // Add data
         for (var i = 0; i < 7; i++) {
+            day[i] = new Date(calendar.Selected.Year, calendar.Selected.Month, calendar.Selected.DayMonth - calendar.Selected.DayWeek + 1 + i);
+
+            // Add data
             var days = document.createElement('div');
             days.className = "day-one-week";
 
@@ -191,9 +228,8 @@ function createCalendar(calendar, element, adjuster) {
             rowDay.appendChild(days);
             days.appendChild(top);
             days.appendChild(bottom);
-        }
-        // Add button 
-        for (var i = 0; i < 7; i++) {
+            // }
+            // Add button 
             var area = document.createElement('div');
             area.className += "create-task-area";
             var btnAddContent = document.createElement('div');
@@ -210,15 +246,48 @@ function createCalendar(calendar, element, adjuster) {
             area.appendChild(btnShowJournal);
             btnShowJournal.appendChild(iShowJournal);
             btnAddContent.appendChild(iAddContent);
-        }
-        // Add column 
-        for (var i = 0; i < 7; i++) {
+
+            // Add column 
             var eventColumn = document.createElement('div');
             eventColumn.className += "event-list";
+            eventColumn.id += day[i];
             rowEvent.appendChild(eventColumn);
+
+            var events = [];
+            events = GetEvent(day[i]);
+            if (events.length != 0) {
+                for (var j = 0; j < events.length; j++) {
+                    var event = document.createElement('div');
+                    event.className += "event-wrap";
+
+                    var timeEv = document.createElement('div');
+                    timeEv.className += "date-event";
+
+                    var timeStart = document.createElement('div');
+                    timeStart.className += "hour-event";
+                    timeStart.id += "timeStart";
+                    timeStart.innerHTML += events[j].timeStart;
+
+                    var timeEnd = document.createElement('div');
+                    timeEnd.className += "hour-event";
+                    timeEnd.id += "timeEnd";
+                    timeEnd.innerHTML += events[j].timeEnd;
+
+                    var titleEv = document.createElement('div');
+                    titleEv.className += "title-event";
+                    titleEv.innerHTML += events[j].title;
+
+                    timeEv.appendChild(timeStart);
+                    timeEv.appendChild(timeEnd);
+                    event.appendChild(timeEv);
+                    event.appendChild(titleEv);
+                    eventColumn.appendChild(event);
+                }
+            }
+            // console.log(events);
         }
         element.appendChild(rowDay);
-        element.appendChild(rowButton);
+        // element.appendChild(rowButton);
         element.appendChild(rowEvent);
 
     }
