@@ -9,7 +9,7 @@ const MONTH_BUTTON_SELECTOR = document.getElementById('view-month');
 const YEAR_BUTTON_SELECTOR = document.getElementById('view-year');
 const TODAY_BUTTON_SELECTOR = document.getElementById('view-today');
 const ADD_EVENT_BUTTON = document.getElementById('add-event');
-const REFRESH_BUTTON = document.getElementById('refresh');
+const REFRESH_BUTTON = document.getElementById('refresh-btn');
 
 // Link css for week, month, year view
 const WEEK_CSS = "/css/theme-calendar/week.css";
@@ -83,6 +83,7 @@ TODAY_BUTTON_SELECTOR.onclick = function () {
     WEEK_BUTTON_SELECTOR.click();
 }
 REFRESH_BUTTON.onclick = function() {
+    console.log('refresh')
     reloadInterface();
 }
 
