@@ -15,6 +15,6 @@ router.post('/event/un-follow', Events.unFollow);
 router.get('/delete-all-event', Events.deleteAll);
 router.get('/event/get-all', Events.getAll);
 router.get('/event/get-followed', Events.getFollowed);
-router.get('/test', Events.test);
+router.get('/event/get-in-date', Events.getInDate);
 
 module.exports = router;

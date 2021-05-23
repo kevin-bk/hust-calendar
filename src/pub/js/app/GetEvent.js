@@ -3,38 +3,21 @@
  * @param {*} date : Ngày cần load sự kiện
  * @returns events : Danh sách event có trong ngày Date
  ======================================================*/
-function GetEvent(date) {
-    var eventData = [
-        {
-            title: "ev1",
-            date: "Sun May 23 2021 00:00:00 GMT+0700 (Giờ Đông Dương)",
-            timeStart: "03:38",
-            timeEnd: "04:38",
-        },
-        {
-            title: "ev2",
-            date: "Sat May 01 2021 00:00:00 GMT+0700 (Giờ Đông Dương)",
-            timeStart: "03:38",
-            timeEnd: "04:38",
-        },
-        {
-            title: "ev3",
-            date: "Mon Apr 26 2021 00:00:00 GMT+0700 (Giờ Đông Dương)",
-            timeStart: "03:38",
-            timeEnd: "04:38",
-        },
-        {
-            title: "ev4",
-            date: "Sun Apr 25 2021 00:00:00 GMT+0700 (Giờ Đông Dương)",
-            timeStart: "03:38",
-            timeEnd: "04:38",
-        },
-    ];
-    var events = [];
-    for (var i = 0; i < eventData.length; i++) {
-        if (date == eventData[i].date) {
-            events.push(eventData[i]);
-        }
-    };
-    return events;
+async function GetEvent(date) {
+    let res = false;
+    await fetch('/api/event/get-in-date?date=' + dateToString(date))
+        .then(res => res.json())
+        .then(events => {
+            if (events) res = events;
+            else res = false;
+        });
+
+    var eventData = res.map(e => {
+        let event = {};
+        event.title = e.name;
+        event.timeStart = e.timeStart;
+        event.timeEnd = e.timeEnd;
+        return event;
+    })
+    return eventData;
 }

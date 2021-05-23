@@ -60,13 +60,14 @@ class EventApi {
         })
     }
 
-    test(req, res, next) {
-        res.json(req.session.userId);
-        // var date = new Date(2021, 4, 19);
-        // console.log(date);
-        // EventModel.getEventAtDate( 0, date, function(data) {
-        //     res.json(data);
-        // })
+    getInDate(req, res) {
+        var date = req.query.date;
+        EventModel.getInDate(req.session.userId, date, function(events) {
+            if (events) {
+                res.json(events);
+            }
+            else res.json({});
+        })
     }
 }
 

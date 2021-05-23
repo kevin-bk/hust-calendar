@@ -1,5 +1,13 @@
 const EventModel = require('./schemas/Events');
 
+function dateToString(d) {
+    const date = new Date(d);
+    return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + 
+    '-' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) +
+    '-' + date.getFullYear();
+}
+
+
 module.exports = {
     getEventById: function(id, callback) {
         EventModel.findById({ id })
@@ -69,6 +77,18 @@ module.exports = {
 
     getFollowed: function(userID, callback) {
         EventModel.find({ owner: {$ne: userID}, followers: userID})
+            .then(events => callback(events))
+            .catch(() => callback(false));
+    },
+
+    getInDate: function(userID, date, callback) {
+        EventModel.find({owner: userID})
+            .then(events => {
+                let Events = events.filter(event => {
+                    if (date == dateToString(event.date)) return event;
+                })
+                return Events;
+            })
             .then(events => callback(events))
             .catch(() => callback(false));
     }

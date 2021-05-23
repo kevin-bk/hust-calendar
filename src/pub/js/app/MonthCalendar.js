@@ -134,7 +134,7 @@ function createCalendar(calendar, element, adjuster) {
     }
 
     // Tạo bảng các ngày trong tháng
-    function AddDays() {
+    async function AddDays() {
         // Create Number Element
         function DayNumber(n) {
             var number = document.createElement('p');
@@ -160,7 +160,8 @@ function createCalendar(calendar, element, adjuster) {
             day.appendChild(number);
             // Lấy events 
             var events = [];
-            events = GetEvent(curDay);
+            events = await GetEvent(curDay);
+            console.log('get eventof ' + curDay);
             if(events.length != 0){
                 for(var j = 0; j < events.length; j++){
                     var event = document.createElement('div');
@@ -256,7 +257,7 @@ function createCalendar(calendar, element, adjuster) {
 
             // Lấy events 
             var events = [];
-            events = GetEvent(curDay);
+            events = await GetEvent(curDay);
             if(events.length != 0){
                 for(var j = 0; j < events.length; j++){
                     var event = document.createElement('div');
