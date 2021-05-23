@@ -94,6 +94,15 @@ ADD_EVENT_BUTTON.onclick = function () {
         document.getElementById('form-modal').style.display = 'none';
     }
 
+    document.getElementById('name').value = null;
+    document.getElementById('date').value = null;
+    document.getElementById('description').value = null;
+    document.getElementById('time-Start').value = null;
+    document.getElementById('time-End').value = null;
+    document.getElementById('location').value = null;
+    document.getElementById('public').checked = null;
+    document.getElementById('done').checked = null;
+
     document.getElementById('submit-add-event').onclick = function (event) {
         event.preventDefault();
         if (!validateForm()) return;

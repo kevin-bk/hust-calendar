@@ -182,6 +182,19 @@ function createCalendar(calendar, element, adjuster) {
                     var titleEv = document.createElement('div');
                     titleEv.className += "title-event";
                     titleEv.innerHTML += events[j].title;
+                    titleEv.id = events[j].id;
+                    titleEv.setAttribute('onclick','showEditModal(this)');
+                    titleEv.setAttribute('data-id', events[j].id);
+                    titleEv.setAttribute('data-name', events[j].title);
+                    titleEv.setAttribute('data-description', events[j].description);
+                    titleEv.setAttribute('data-date', events[j].day);
+                    titleEv.setAttribute('data-timeStart', events[j].timeStart);
+                    titleEv.setAttribute('data-timeEnd', events[j].timeEnd);
+                    titleEv.setAttribute('data-location', events[j].location);
+                    titleEv.setAttribute('data-public', events[j].private);
+                    titleEv.setAttribute('data-done', events[j].done);
+                    if (events[j].done) titleEv.className += " title-event-done";
+                    titleEv.innerHTML += events[j].title;
 
                     timeEv.appendChild(timeStart);
                     timeEv.appendChild(timeEnd);
@@ -278,6 +291,19 @@ function createCalendar(calendar, element, adjuster) {
                     var titleEv = document.createElement('div');
                     titleEv.className += "title-event";
                     titleEv.innerHTML += events[j].title;
+                    titleEv.id = events[j].id;
+                    titleEv.setAttribute('onclick','showEditModal(this)');
+                    titleEv.setAttribute('data-id', events[j].id);
+                    titleEv.setAttribute('data-name', events[j].title);
+                    titleEv.setAttribute('data-description', events[j].description);
+                    titleEv.setAttribute('data-date', events[j].day);
+                    titleEv.setAttribute('data-timeStart', events[j].timeStart);
+                    titleEv.setAttribute('data-timeEnd', events[j].timeEnd);
+                    titleEv.setAttribute('data-location', events[j].location);
+                    titleEv.setAttribute('data-public', events[j].private);
+                    titleEv.setAttribute('data-done', events[j].done);
+                    if (events[j].done) titleEv.className += " title-event-done";
+                    titleEv.innerHTML += events[j].title;
 
                     timeEv.appendChild(timeStart);
                     timeEv.appendChild(timeEnd);
@@ -330,6 +356,19 @@ function createCalendar(calendar, element, adjuster) {
 
                     var titleEv = document.createElement('div');
                     titleEv.className += "title-event";
+                    titleEv.innerHTML += events[j].title;
+                    titleEv.id = events[j].id;
+                    titleEv.setAttribute('onclick','showEditModal(this)');
+                    titleEv.setAttribute('data-id', events[j].id);
+                    titleEv.setAttribute('data-name', events[j].title);
+                    titleEv.setAttribute('data-description', events[j].description);
+                    titleEv.setAttribute('data-date', events[j].day);
+                    titleEv.setAttribute('data-timeStart', events[j].timeStart);
+                    titleEv.setAttribute('data-timeEnd', events[j].timeEnd);
+                    titleEv.setAttribute('data-location', events[j].location);
+                    titleEv.setAttribute('data-public', events[j].private);
+                    titleEv.setAttribute('data-done', events[j].done);
+                    if (events[j].done) titleEv.className += " title-event-done";
                     titleEv.innerHTML += events[j].title;
 
                     timeEv.appendChild(timeStart);
