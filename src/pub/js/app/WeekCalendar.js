@@ -264,8 +264,8 @@ function createCalendar(calendar, element, adjuster) {
                     titleEv.setAttribute('data-public', events[j].private);
                     titleEv.setAttribute('data-done', events[j].done);
                     titleEv.setAttribute('data-owner', events[j].owner);
-                    if (events[j].done) titleEv.className += " title-event-done";
                     if (!events[j].owner) titleEv.className += " title-event-other";
+                    if (events[j].done) titleEv.className += " title-event-done";
                     titleEv.innerHTML += events[j].title;
 
                     timeEv.appendChild(timeStart);
