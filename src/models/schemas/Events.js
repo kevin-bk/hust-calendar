@@ -13,7 +13,8 @@ const Event = new Schema({
     type: { type: String },
     private: { type: Boolean },
     followers: [{ type: String }],
-    image: { type: String }
+    image: { type: String },
+    done: { type: Boolean}
 });
 
 // add plugin

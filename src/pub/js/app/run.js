@@ -105,7 +105,8 @@ ADD_EVENT_BUTTON.onclick = function () {
                 timeStart: document.getElementById('time-Start').value,
                 timeEnd: document.getElementById('time-End').value,
                 location: document.getElementById('location').value,
-                private: document.getElementById('public').checked
+                private: document.getElementById('public').checked,
+                done: document.getElementById('done').checked
             }
             fetch('/api/event/create', {
                 method: 'POST',
@@ -139,6 +140,7 @@ async function getSelfEvents() {
         event.title = e.name;
         event.timeStart = e.timeStart;
         event.timeEnd = e.timeEnd;
+        event.done = e.done;
         event.date = dateToString(e.date);
         return event;
     })

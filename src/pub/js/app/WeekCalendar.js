@@ -195,8 +195,6 @@ function createCalendar(calendar, element, adjuster) {
             dayLunarDiv.className = 'lunar';
             dayLunarDiv.innerHTML = dayLunar[2] + '/' + dayLunar[1];
             days.appendChild(dayLunarDiv);
-            // console.log(getDayNumber(day[i]) + '/' + getMonthNumber(day[i]) - 1 + '/' + getYear(day[i]));
-            // console.log(getDay(dayLunar) + '/' + getMonthNumber(dayLunar));
 
             // Add month
             var month = document.createElement('div');
@@ -254,6 +252,7 @@ function createCalendar(calendar, element, adjuster) {
 
                     var titleEv = document.createElement('div');
                     titleEv.className += "title-event";
+                    if (events[j].done) titleEv.className += " title-event-done";
                     titleEv.innerHTML += events[j].title;
 
                     timeEv.appendChild(timeStart);
