@@ -2,7 +2,7 @@
 
 <div class="navbar">
     <div class="top-item fti">
-        <div class="sub-item">
+        <div class="sub-item" id="icon-search" onclick="show_search()">
             <div class="icon-space" title="Search">
                 <div class="icon-search"></div>
             </div>
@@ -69,3 +69,23 @@
         </a>
     </div>
 </div>
+
+<!-- Modal tìm kiếm -->
+<div class="modal-content position-modal-search" id="modal-search" style="display: none;">
+    <div class="container" id="container-search">
+        <form action="/search">
+            <div class="form-search">
+                <i class="fas fa-search"></i>
+                <input type="search" name="key" placeholder="Nhập ít nhất 3 ký tự" class="search-event"
+                    id="searching" autocomplete="off" autofocus onkeyup="startSearch(event)">
+            </div>
+        </form>
+        <div class="display-result" id="result-search">
+            <ul id="lists">
+                <i class="fa fa-refresh refresh" id="refresh"></i>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="/js/component/live-search.js"></script>

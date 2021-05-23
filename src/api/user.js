@@ -10,6 +10,12 @@ class UserApi {
         })
     }
 
+    search(req, res) {
+        UserModel.search(req.params.key, function(users) {
+            res.json(users);
+        })
+    }
+
     getSelfInfo(req, res, next) {
         UserModel.getById(req.session.userId, function(info) {
             EventModel.getFollowed(req.session.userId, function(events) {

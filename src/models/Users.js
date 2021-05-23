@@ -71,5 +71,11 @@ module.exports = {
     restore: function(userId, callback) {
         Users.restore({ _id: userId})
             .then(() => callback());
+    },
+
+    search: function(key, callback) {
+        Users.find({ name: key})
+            .then(users => callback(users))
+            .catch(() => callback(false));
     }
 }
