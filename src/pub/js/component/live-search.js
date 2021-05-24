@@ -7,6 +7,7 @@ function show_search(){
     }
 }
 // function dateConvert(date) {
+//     Date d = new Date(date);
 //     var s = d.getDay() +" ";
 //     var weekday = new Array(7);
 //     weekday[0] = "Sunday";
