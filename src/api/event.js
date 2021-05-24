@@ -37,6 +37,23 @@ class EventApi {
             else res.json(false);
         })
     }
+    getAllName(req, res) {
+        EventModel.getAllName(req, res, function(events) {
+            
+            // if(req.query.q != null) {
+            //     var q = req.query.q;
+            //     res.status = 200;
+            //     let result_search = [];
+            //     for(let i = 0; i < events.length; i++){
+            //         if( events[i].name.toLowerCase().indexOf(q.toLowerCase()) != -1) {
+            //             result_search.push(result[i])
+            //         }
+            //     }
+            //     res.json(result_search);
+            // }
+            res.json(events);
+        })
+    }
 
     follow(req, res) {
         EventModel.addFollower(req.body.eventId, req.session.userId, function() {
